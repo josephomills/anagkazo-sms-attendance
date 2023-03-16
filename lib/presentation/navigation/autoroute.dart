@@ -1,4 +1,6 @@
 import 'package:attendance/presentation/pages/auth/login.page.dart';
+import 'package:attendance/presentation/pages/events/add_event.page.dart';
+import 'package:attendance/presentation/pages/events/event_details.page.dart';
 import 'package:attendance/presentation/pages/events/events.page.dart';
 import 'package:attendance/presentation/pages/home/home.page.dart';
 import 'package:attendance/presentation/pages/index.page.dart';
@@ -22,6 +24,8 @@ import 'package:auto_route/auto_route.dart';
             page: ReportsPage, meta: {"title": "Reports"}, path: "reports"),
       ],
     ),
+    AutoRoute(page: AddEventPage, meta: {"title": "Add Event"}),
+    AutoRoute(page: EventDetailsPage, meta: {"title": "Event Details"}),
   ],
 )
 class $AppRouter {}

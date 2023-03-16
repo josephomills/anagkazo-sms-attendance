@@ -1,9 +1,12 @@
+import 'package:attendance/application/app/app_bloc.dart';
 import 'package:attendance/domain/core/config/injectable.core.dart';
 import 'package:attendance/infrastructure/core/parse.core.dart';
 import 'package:attendance/presentation/navigation/auth_gard.core.dart';
 import 'package:attendance/presentation/navigation/autoroute.gr.dart';
 import 'package:attendance/presentation/theme/app_theme.dart';
+import 'package:attendance/presentation/widgets/loader.widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:injectable/injectable.dart';
 import 'package:moment_dart/moment_dart.dart';
@@ -34,19 +37,32 @@ class AnagkazoSMSAttendanceManager extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'ASMS Attendance Manager',
-      themeMode: ThemeMode.system,
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      builder: (context, widget) => ResponsiveWrapper.builder(
-        BouncingScrollWrapper.builder(context, widget!),
-        defaultScale: true,
-      ),
-      locale: const Locale('en'),
+    return BlocConsumer<AppBloc, AppState>(
+      bloc: getIt<AppBloc>()..add(const AppEvent.started()),
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: 'ASMS Attendance Manager',
+          themeMode: ThemeMode.system,
+          theme: AppTheme.light,
+          darkTheme: AppTheme.dark,
+          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
+          builder: (context, widget) => Stack(
+            children: [
+              ResponsiveWrapper.builder(
+                BouncingScrollWrapper.builder(context, widget!),
+                defaultScale: true,
+              ),
+              if (state.isLoading) const LoaderWidget(),
+            ],
+          ),
+          locale: const Locale('en'),
+        );
+      },
     );
   }
 }

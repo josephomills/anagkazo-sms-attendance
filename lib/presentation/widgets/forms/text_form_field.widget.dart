@@ -4,8 +4,8 @@ class TextFormFieldWidget extends StatelessWidget {
   const TextFormFieldWidget({
     Key? key,
     required this.text,
-    required this.validator,
-    required this.onChanged,
+    this.validator,
+    this.onChanged,
     required this.label,
     required this.hint,
     this.prefixIcon,
@@ -14,6 +14,9 @@ class TextFormFieldWidget extends StatelessWidget {
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.next,
+    this.enabled,
+    this.controller,
+    this.allowInteractiveSelection,
   }) : super(key: key);
 
   final String text;
@@ -27,11 +30,17 @@ class TextFormFieldWidget extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final TextInputAction? textInputAction;
+  final bool? enabled;
+  final TextEditingController? controller;
+  final bool? allowInteractiveSelection;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: enabled,
+      enableInteractiveSelection: allowInteractiveSelection,
       initialValue: text,
+      // controller: TextEditingController(text: text),
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       textCapitalization: TextCapitalization.none,

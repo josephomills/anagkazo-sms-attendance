@@ -1,5 +1,6 @@
 import 'package:attendance/presentation/navigation/autoroute.gr.dart';
 import 'package:attendance/presentation/widgets/bottom_nav.widget.dart';
+import 'package:attendance/presentation/widgets/fab.widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,12 @@ class IndexPage extends StatelessWidget {
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return const BottomNavWidget();
+      },
+      floatingActionButtonBuilder: (context, tabsRouter) {
+        return (tabsRouter.activeIndex == NavIndex.home ||
+                tabsRouter.activeIndex == NavIndex.events)
+            ? const FABWidget()
+            : null;
       },
     );
   }

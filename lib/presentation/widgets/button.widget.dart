@@ -55,7 +55,7 @@ class ButtonWidget extends StatelessWidget {
                   )
                 : Text(
                     label,
-                    style: Theme.of(context).textTheme.button!.copyWith(
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
                           fontSize: fontSize,
                           color: textColor ??
                               Theme.of(context).colorScheme.onPrimary,

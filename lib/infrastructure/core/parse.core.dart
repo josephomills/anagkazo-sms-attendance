@@ -1,4 +1,5 @@
 import 'package:attendance/domain/core/config/secrets.dart';
+import 'package:attendance/infrastructure/auth/models/role.object.dart';
 import 'package:attendance/infrastructure/events/models/event.object.dart';
 import 'package:attendance/infrastructure/events/models/event_type.object.dart';
 import 'package:attendance/infrastructure/events/models/year_group.object.dart';
@@ -18,6 +19,7 @@ Future<void> initParse() async {
       "Scan": () => ScanObject(),
       "Event": () => EventObject(),
       "EventType": () => EventTypeObject(),
+      "_Role": () => RoleObject(),
     },
   );
 }

@@ -10,6 +10,8 @@ class AddEventEvent with _$AddEventEvent {
       _DateChanged;
   const factory AddEventEvent.timeChanged({required TimeOfDay time}) =
       _TimeChanged;
+  const factory AddEventEvent.latenessRuleChanged(
+      {required String latenessRule}) = _LatenessRuleChanged;
   const factory AddEventEvent.savePressed(
       {required GlobalKey<FormState> formKey}) = _SavePressed;
 }

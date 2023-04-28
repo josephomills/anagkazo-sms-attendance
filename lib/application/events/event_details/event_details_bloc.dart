@@ -33,13 +33,6 @@ class EventDetailsBloc extends Bloc<EventDetailsEvent, EventDetailsState> {
             failureOrSuccessOption: none(),
             failureOrUnitOption: none(),
           ));
-
-          // Fetch EventTypeObjects
-          // if (state.failureOrListOption.isNone()) {
-          //   final failureOrList = await _eventsFacade.getAllEventTpes();
-          //   emit(state.copyWith(failureOrListOption: some(failureOrList)));
-          // }
-          // emit(state.copyWith(isLoading: false));
         },
         dateChanged: (e) => emit(state.copyWith(date: e.date)),
         timeChanged: (e) => emit(state.copyWith(time: e.time)),
@@ -59,6 +52,8 @@ class EventDetailsBloc extends Bloc<EventDetailsEvent, EventDetailsState> {
         },
         deleteCancelled: (e) => emit(state.copyWith(deleteConfirmation: false)),
         editPressed: (e) => emit(state.copyWith(isEditing: true)),
+        latenessRuleChanged: (e) =>
+            emit(state.copyWith(latenessRule: e.latenessRule)),
         savePressed: (e) async {
           emit(state.copyWith(isLoading: true));
 

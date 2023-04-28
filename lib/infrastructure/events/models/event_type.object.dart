@@ -19,8 +19,8 @@ class EventTypeObject extends ParseObject implements ParseCloneable {
   String? get category => get<String>(kCategory);
   set category(String? category) => set<String?>(kCategory, category);
 
-  static const String kGroup = 'group';
+  static const String kLatenessRule = 'latenessRule';
 
-  String? get group => get<String>(kGroup);
-  set group(String? group) => set<String?>(kGroup, group);
+  int? get latenessRule => get<int>(kLatenessRule);
+  set latenessRule(int? latenessRule) => set<int?>(kLatenessRule, latenessRule);
 }

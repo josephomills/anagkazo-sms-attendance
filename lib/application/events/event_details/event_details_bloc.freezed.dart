@@ -28,6 +28,7 @@ mixin _$EventDetailsEvent {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ mixin _$EventDetailsEvent {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +60,7 @@ mixin _$EventDetailsEvent {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) =>
@@ -74,6 +77,7 @@ mixin _$EventDetailsEvent {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -89,6 +93,7 @@ mixin _$EventDetailsEvent {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -104,6 +109,7 @@ mixin _$EventDetailsEvent {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) =>
@@ -201,6 +207,7 @@ class _$_Started implements _Started {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return started(event);
@@ -219,6 +226,7 @@ class _$_Started implements _Started {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return started?.call(event);
@@ -237,6 +245,7 @@ class _$_Started implements _Started {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -259,6 +268,7 @@ class _$_Started implements _Started {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return started(this);
@@ -277,6 +287,7 @@ class _$_Started implements _Started {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return started?.call(this);
@@ -295,6 +306,7 @@ class _$_Started implements _Started {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -362,6 +374,7 @@ class _$_DeletePressed implements _DeletePressed {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return deletePressed();
@@ -380,6 +393,7 @@ class _$_DeletePressed implements _DeletePressed {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return deletePressed?.call();
@@ -398,6 +412,7 @@ class _$_DeletePressed implements _DeletePressed {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -420,6 +435,7 @@ class _$_DeletePressed implements _DeletePressed {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return deletePressed(this);
@@ -438,6 +454,7 @@ class _$_DeletePressed implements _DeletePressed {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return deletePressed?.call(this);
@@ -456,6 +473,7 @@ class _$_DeletePressed implements _DeletePressed {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -518,6 +536,7 @@ class _$_DeleteCancelled implements _DeleteCancelled {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return deleteCancelled();
@@ -536,6 +555,7 @@ class _$_DeleteCancelled implements _DeleteCancelled {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return deleteCancelled?.call();
@@ -554,6 +574,7 @@ class _$_DeleteCancelled implements _DeleteCancelled {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -576,6 +597,7 @@ class _$_DeleteCancelled implements _DeleteCancelled {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return deleteCancelled(this);
@@ -594,6 +616,7 @@ class _$_DeleteCancelled implements _DeleteCancelled {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return deleteCancelled?.call(this);
@@ -612,6 +635,7 @@ class _$_DeleteCancelled implements _DeleteCancelled {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -674,6 +698,7 @@ class _$_DeleteConfirmed implements _DeleteConfirmed {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return deleteConfirmed();
@@ -692,6 +717,7 @@ class _$_DeleteConfirmed implements _DeleteConfirmed {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return deleteConfirmed?.call();
@@ -710,6 +736,7 @@ class _$_DeleteConfirmed implements _DeleteConfirmed {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -732,6 +759,7 @@ class _$_DeleteConfirmed implements _DeleteConfirmed {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return deleteConfirmed(this);
@@ -750,6 +778,7 @@ class _$_DeleteConfirmed implements _DeleteConfirmed {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return deleteConfirmed?.call(this);
@@ -768,6 +797,7 @@ class _$_DeleteConfirmed implements _DeleteConfirmed {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -857,6 +887,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return nameChanged(eventName);
@@ -875,6 +906,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return nameChanged?.call(eventName);
@@ -893,6 +925,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -915,6 +948,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return nameChanged(this);
@@ -933,6 +967,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return nameChanged?.call(this);
@@ -951,6 +986,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -1046,6 +1082,7 @@ class _$_EventTypeChanged implements _EventTypeChanged {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return eventTypeChanged(eventType);
@@ -1064,6 +1101,7 @@ class _$_EventTypeChanged implements _EventTypeChanged {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return eventTypeChanged?.call(eventType);
@@ -1082,6 +1120,7 @@ class _$_EventTypeChanged implements _EventTypeChanged {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -1104,6 +1143,7 @@ class _$_EventTypeChanged implements _EventTypeChanged {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return eventTypeChanged(this);
@@ -1122,6 +1162,7 @@ class _$_EventTypeChanged implements _EventTypeChanged {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return eventTypeChanged?.call(this);
@@ -1140,6 +1181,7 @@ class _$_EventTypeChanged implements _EventTypeChanged {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -1234,6 +1276,7 @@ class _$_DateChanged implements _DateChanged {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return dateChanged(date);
@@ -1252,6 +1295,7 @@ class _$_DateChanged implements _DateChanged {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return dateChanged?.call(date);
@@ -1270,6 +1314,7 @@ class _$_DateChanged implements _DateChanged {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -1292,6 +1337,7 @@ class _$_DateChanged implements _DateChanged {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return dateChanged(this);
@@ -1310,6 +1356,7 @@ class _$_DateChanged implements _DateChanged {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return dateChanged?.call(this);
@@ -1328,6 +1375,7 @@ class _$_DateChanged implements _DateChanged {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -1421,6 +1469,7 @@ class _$_TimeChanged implements _TimeChanged {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return timeChanged(time);
@@ -1439,6 +1488,7 @@ class _$_TimeChanged implements _TimeChanged {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return timeChanged?.call(time);
@@ -1457,6 +1507,7 @@ class _$_TimeChanged implements _TimeChanged {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -1479,6 +1530,7 @@ class _$_TimeChanged implements _TimeChanged {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return timeChanged(this);
@@ -1497,6 +1549,7 @@ class _$_TimeChanged implements _TimeChanged {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return timeChanged?.call(this);
@@ -1515,6 +1568,7 @@ class _$_TimeChanged implements _TimeChanged {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -1582,6 +1636,7 @@ class _$_EditPressed implements _EditPressed {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return editPressed();
@@ -1600,6 +1655,7 @@ class _$_EditPressed implements _EditPressed {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return editPressed?.call();
@@ -1618,6 +1674,7 @@ class _$_EditPressed implements _EditPressed {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -1640,6 +1697,7 @@ class _$_EditPressed implements _EditPressed {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return editPressed(this);
@@ -1658,6 +1716,7 @@ class _$_EditPressed implements _EditPressed {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return editPressed?.call(this);
@@ -1676,6 +1735,7 @@ class _$_EditPressed implements _EditPressed {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -1764,6 +1824,7 @@ class _$_EditCancelled implements _EditCancelled {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return editCancelled(event);
@@ -1782,6 +1843,7 @@ class _$_EditCancelled implements _EditCancelled {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return editCancelled?.call(event);
@@ -1800,6 +1862,7 @@ class _$_EditCancelled implements _EditCancelled {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -1822,6 +1885,7 @@ class _$_EditCancelled implements _EditCancelled {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return editCancelled(this);
@@ -1840,6 +1904,7 @@ class _$_EditCancelled implements _EditCancelled {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return editCancelled?.call(this);
@@ -1858,6 +1923,7 @@ class _$_EditCancelled implements _EditCancelled {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -1875,6 +1941,202 @@ abstract class _EditCancelled implements EventDetailsEvent {
   EventObject get event;
   @JsonKey(ignore: true)
   _$$_EditCancelledCopyWith<_$_EditCancelled> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LatenessRuleChangedCopyWith<$Res> {
+  factory _$$_LatenessRuleChangedCopyWith(_$_LatenessRuleChanged value,
+          $Res Function(_$_LatenessRuleChanged) then) =
+      __$$_LatenessRuleChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String latenessRule});
+}
+
+/// @nodoc
+class __$$_LatenessRuleChangedCopyWithImpl<$Res>
+    extends _$EventDetailsEventCopyWithImpl<$Res, _$_LatenessRuleChanged>
+    implements _$$_LatenessRuleChangedCopyWith<$Res> {
+  __$$_LatenessRuleChangedCopyWithImpl(_$_LatenessRuleChanged _value,
+      $Res Function(_$_LatenessRuleChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? latenessRule = null,
+  }) {
+    return _then(_$_LatenessRuleChanged(
+      latenessRule: null == latenessRule
+          ? _value.latenessRule
+          : latenessRule // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_LatenessRuleChanged implements _LatenessRuleChanged {
+  const _$_LatenessRuleChanged({required this.latenessRule});
+
+  @override
+  final String latenessRule;
+
+  @override
+  String toString() {
+    return 'EventDetailsEvent.latenessRuleChanged(latenessRule: $latenessRule)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LatenessRuleChanged &&
+            (identical(other.latenessRule, latenessRule) ||
+                other.latenessRule == latenessRule));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, latenessRule);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LatenessRuleChangedCopyWith<_$_LatenessRuleChanged> get copyWith =>
+      __$$_LatenessRuleChangedCopyWithImpl<_$_LatenessRuleChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(EventObject event) started,
+    required TResult Function() deletePressed,
+    required TResult Function() deleteCancelled,
+    required TResult Function() deleteConfirmed,
+    required TResult Function(String eventName) nameChanged,
+    required TResult Function(EventTypeObject eventType) eventTypeChanged,
+    required TResult Function(DateTime date) dateChanged,
+    required TResult Function(TimeOfDay time) timeChanged,
+    required TResult Function() editPressed,
+    required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
+    required TResult Function() savePressed,
+  }) {
+    return latenessRuleChanged(latenessRule);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(EventObject event)? started,
+    TResult? Function()? deletePressed,
+    TResult? Function()? deleteCancelled,
+    TResult? Function()? deleteConfirmed,
+    TResult? Function(String eventName)? nameChanged,
+    TResult? Function(EventTypeObject eventType)? eventTypeChanged,
+    TResult? Function(DateTime date)? dateChanged,
+    TResult? Function(TimeOfDay time)? timeChanged,
+    TResult? Function()? editPressed,
+    TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
+    TResult? Function()? savePressed,
+  }) {
+    return latenessRuleChanged?.call(latenessRule);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(EventObject event)? started,
+    TResult Function()? deletePressed,
+    TResult Function()? deleteCancelled,
+    TResult Function()? deleteConfirmed,
+    TResult Function(String eventName)? nameChanged,
+    TResult Function(EventTypeObject eventType)? eventTypeChanged,
+    TResult Function(DateTime date)? dateChanged,
+    TResult Function(TimeOfDay time)? timeChanged,
+    TResult Function()? editPressed,
+    TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
+    TResult Function()? savePressed,
+    required TResult orElse(),
+  }) {
+    if (latenessRuleChanged != null) {
+      return latenessRuleChanged(latenessRule);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DeletePressed value) deletePressed,
+    required TResult Function(_DeleteCancelled value) deleteCancelled,
+    required TResult Function(_DeleteConfirmed value) deleteConfirmed,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EventTypeChanged value) eventTypeChanged,
+    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_TimeChanged value) timeChanged,
+    required TResult Function(_EditPressed value) editPressed,
+    required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
+    required TResult Function(_SavePressed value) savePressed,
+  }) {
+    return latenessRuleChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_DeletePressed value)? deletePressed,
+    TResult? Function(_DeleteCancelled value)? deleteCancelled,
+    TResult? Function(_DeleteConfirmed value)? deleteConfirmed,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EventTypeChanged value)? eventTypeChanged,
+    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_TimeChanged value)? timeChanged,
+    TResult? Function(_EditPressed value)? editPressed,
+    TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
+    TResult? Function(_SavePressed value)? savePressed,
+  }) {
+    return latenessRuleChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DeletePressed value)? deletePressed,
+    TResult Function(_DeleteCancelled value)? deleteCancelled,
+    TResult Function(_DeleteConfirmed value)? deleteConfirmed,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EventTypeChanged value)? eventTypeChanged,
+    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_TimeChanged value)? timeChanged,
+    TResult Function(_EditPressed value)? editPressed,
+    TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
+    TResult Function(_SavePressed value)? savePressed,
+    required TResult orElse(),
+  }) {
+    if (latenessRuleChanged != null) {
+      return latenessRuleChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LatenessRuleChanged implements EventDetailsEvent {
+  const factory _LatenessRuleChanged({required final String latenessRule}) =
+      _$_LatenessRuleChanged;
+
+  String get latenessRule;
+  @JsonKey(ignore: true)
+  _$$_LatenessRuleChangedCopyWith<_$_LatenessRuleChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1926,6 +2188,7 @@ class _$_SavePressed implements _SavePressed {
     required TResult Function(TimeOfDay time) timeChanged,
     required TResult Function() editPressed,
     required TResult Function(EventObject event) editCancelled,
+    required TResult Function(String latenessRule) latenessRuleChanged,
     required TResult Function() savePressed,
   }) {
     return savePressed();
@@ -1944,6 +2207,7 @@ class _$_SavePressed implements _SavePressed {
     TResult? Function(TimeOfDay time)? timeChanged,
     TResult? Function()? editPressed,
     TResult? Function(EventObject event)? editCancelled,
+    TResult? Function(String latenessRule)? latenessRuleChanged,
     TResult? Function()? savePressed,
   }) {
     return savePressed?.call();
@@ -1962,6 +2226,7 @@ class _$_SavePressed implements _SavePressed {
     TResult Function(TimeOfDay time)? timeChanged,
     TResult Function()? editPressed,
     TResult Function(EventObject event)? editCancelled,
+    TResult Function(String latenessRule)? latenessRuleChanged,
     TResult Function()? savePressed,
     required TResult orElse(),
   }) {
@@ -1984,6 +2249,7 @@ class _$_SavePressed implements _SavePressed {
     required TResult Function(_TimeChanged value) timeChanged,
     required TResult Function(_EditPressed value) editPressed,
     required TResult Function(_EditCancelled value) editCancelled,
+    required TResult Function(_LatenessRuleChanged value) latenessRuleChanged,
     required TResult Function(_SavePressed value) savePressed,
   }) {
     return savePressed(this);
@@ -2002,6 +2268,7 @@ class _$_SavePressed implements _SavePressed {
     TResult? Function(_TimeChanged value)? timeChanged,
     TResult? Function(_EditPressed value)? editPressed,
     TResult? Function(_EditCancelled value)? editCancelled,
+    TResult? Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult? Function(_SavePressed value)? savePressed,
   }) {
     return savePressed?.call(this);
@@ -2020,6 +2287,7 @@ class _$_SavePressed implements _SavePressed {
     TResult Function(_TimeChanged value)? timeChanged,
     TResult Function(_EditPressed value)? editPressed,
     TResult Function(_EditCancelled value)? editCancelled,
+    TResult Function(_LatenessRuleChanged value)? latenessRuleChanged,
     TResult Function(_SavePressed value)? savePressed,
     required TResult orElse(),
   }) {
@@ -2046,10 +2314,11 @@ mixin _$EventDetailsState {
   EventTypeObject? get eventType => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   TimeOfDay get time => throw _privateConstructorUsedError;
+  String get latenessRule => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   Option<Either<EventsFailure, List<EventTypeObject>>>
-      get failureOrListOption => throw _privateConstructorUsedError;
+      get failureOrEventTypeListOption => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EventDetailsStateCopyWith<EventDetailsState> get copyWith =>
@@ -2071,10 +2340,11 @@ abstract class $EventDetailsStateCopyWith<$Res> {
       EventTypeObject? eventType,
       DateTime date,
       TimeOfDay time,
+      String latenessRule,
       bool isEditing,
       bool isLoading,
       Option<Either<EventsFailure, List<EventTypeObject>>>
-          failureOrListOption});
+          failureOrEventTypeListOption});
 }
 
 /// @nodoc
@@ -2098,9 +2368,10 @@ class _$EventDetailsStateCopyWithImpl<$Res, $Val extends EventDetailsState>
     Object? eventType = freezed,
     Object? date = null,
     Object? time = null,
+    Object? latenessRule = null,
     Object? isEditing = null,
     Object? isLoading = null,
-    Object? failureOrListOption = null,
+    Object? failureOrEventTypeListOption = null,
   }) {
     return _then(_value.copyWith(
       event: freezed == event
@@ -2135,6 +2406,10 @@ class _$EventDetailsStateCopyWithImpl<$Res, $Val extends EventDetailsState>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
+      latenessRule: null == latenessRule
+          ? _value.latenessRule
+          : latenessRule // ignore: cast_nullable_to_non_nullable
+              as String,
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
@@ -2143,9 +2418,9 @@ class _$EventDetailsStateCopyWithImpl<$Res, $Val extends EventDetailsState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrListOption: null == failureOrListOption
-          ? _value.failureOrListOption
-          : failureOrListOption // ignore: cast_nullable_to_non_nullable
+      failureOrEventTypeListOption: null == failureOrEventTypeListOption
+          ? _value.failureOrEventTypeListOption
+          : failureOrEventTypeListOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<EventsFailure, List<EventTypeObject>>>,
     ) as $Val);
   }
@@ -2168,10 +2443,11 @@ abstract class _$$_EventDetailsStateCopyWith<$Res>
       EventTypeObject? eventType,
       DateTime date,
       TimeOfDay time,
+      String latenessRule,
       bool isEditing,
       bool isLoading,
       Option<Either<EventsFailure, List<EventTypeObject>>>
-          failureOrListOption});
+          failureOrEventTypeListOption});
 }
 
 /// @nodoc
@@ -2193,9 +2469,10 @@ class __$$_EventDetailsStateCopyWithImpl<$Res>
     Object? eventType = freezed,
     Object? date = null,
     Object? time = null,
+    Object? latenessRule = null,
     Object? isEditing = null,
     Object? isLoading = null,
-    Object? failureOrListOption = null,
+    Object? failureOrEventTypeListOption = null,
   }) {
     return _then(_$_EventDetailsState(
       event: freezed == event
@@ -2230,6 +2507,10 @@ class __$$_EventDetailsStateCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
+      latenessRule: null == latenessRule
+          ? _value.latenessRule
+          : latenessRule // ignore: cast_nullable_to_non_nullable
+              as String,
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
@@ -2238,9 +2519,9 @@ class __$$_EventDetailsStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrListOption: null == failureOrListOption
-          ? _value.failureOrListOption
-          : failureOrListOption // ignore: cast_nullable_to_non_nullable
+      failureOrEventTypeListOption: null == failureOrEventTypeListOption
+          ? _value.failureOrEventTypeListOption
+          : failureOrEventTypeListOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<EventsFailure, List<EventTypeObject>>>,
     ));
   }
@@ -2258,9 +2539,10 @@ class _$_EventDetailsState implements _EventDetailsState {
       this.eventType,
       required this.date,
       required this.time,
+      required this.latenessRule,
       required this.isEditing,
       required this.isLoading,
-      required this.failureOrListOption});
+      required this.failureOrEventTypeListOption});
 
   @override
   final EventObject? event;
@@ -2279,16 +2561,18 @@ class _$_EventDetailsState implements _EventDetailsState {
   @override
   final TimeOfDay time;
   @override
+  final String latenessRule;
+  @override
   final bool isEditing;
   @override
   final bool isLoading;
   @override
   final Option<Either<EventsFailure, List<EventTypeObject>>>
-      failureOrListOption;
+      failureOrEventTypeListOption;
 
   @override
   String toString() {
-    return 'EventDetailsState(event: $event, failureOrSuccessOption: $failureOrSuccessOption, failureOrUnitOption: $failureOrUnitOption, deleteConfirmation: $deleteConfirmation, eventName: $eventName, eventType: $eventType, date: $date, time: $time, isEditing: $isEditing, isLoading: $isLoading, failureOrListOption: $failureOrListOption)';
+    return 'EventDetailsState(event: $event, failureOrSuccessOption: $failureOrSuccessOption, failureOrUnitOption: $failureOrUnitOption, deleteConfirmation: $deleteConfirmation, eventName: $eventName, eventType: $eventType, date: $date, time: $time, latenessRule: $latenessRule, isEditing: $isEditing, isLoading: $isLoading, failureOrEventTypeListOption: $failureOrEventTypeListOption)';
   }
 
   @override
@@ -2309,12 +2593,16 @@ class _$_EventDetailsState implements _EventDetailsState {
                 other.eventType == eventType) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.time, time) || other.time == time) &&
+            (identical(other.latenessRule, latenessRule) ||
+                other.latenessRule == latenessRule) &&
             (identical(other.isEditing, isEditing) ||
                 other.isEditing == isEditing) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.failureOrListOption, failureOrListOption) ||
-                other.failureOrListOption == failureOrListOption));
+            (identical(other.failureOrEventTypeListOption,
+                    failureOrEventTypeListOption) ||
+                other.failureOrEventTypeListOption ==
+                    failureOrEventTypeListOption));
   }
 
   @override
@@ -2328,9 +2616,10 @@ class _$_EventDetailsState implements _EventDetailsState {
       eventType,
       date,
       time,
+      latenessRule,
       isEditing,
       isLoading,
-      failureOrListOption);
+      failureOrEventTypeListOption);
 
   @JsonKey(ignore: true)
   @override
@@ -2351,10 +2640,11 @@ abstract class _EventDetailsState implements EventDetailsState {
       final EventTypeObject? eventType,
       required final DateTime date,
       required final TimeOfDay time,
+      required final String latenessRule,
       required final bool isEditing,
       required final bool isLoading,
       required final Option<Either<EventsFailure, List<EventTypeObject>>>
-          failureOrListOption}) = _$_EventDetailsState;
+          failureOrEventTypeListOption}) = _$_EventDetailsState;
 
   @override
   EventObject? get event;
@@ -2373,11 +2663,14 @@ abstract class _EventDetailsState implements EventDetailsState {
   @override
   TimeOfDay get time;
   @override
+  String get latenessRule;
+  @override
   bool get isEditing;
   @override
   bool get isLoading;
   @override
-  Option<Either<EventsFailure, List<EventTypeObject>>> get failureOrListOption;
+  Option<Either<EventsFailure, List<EventTypeObject>>>
+      get failureOrEventTypeListOption;
   @override
   @JsonKey(ignore: true)
   _$$_EventDetailsStateCopyWith<_$_EventDetailsState> get copyWith =>

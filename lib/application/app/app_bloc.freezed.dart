@@ -20,18 +20,21 @@ mixin _$AppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getAllEventTypes,
     required TResult Function() started,
+    required TResult Function(ThemeMode themeMode) themeModeToggled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllEventTypes,
     TResult? Function()? started,
+    TResult? Function(ThemeMode themeMode)? themeModeToggled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllEventTypes,
     TResult Function()? started,
+    TResult Function(ThemeMode themeMode)? themeModeToggled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AppEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllEventTypes value) getAllEventTypes,
     required TResult Function(_Started value) started,
+    required TResult Function(_ThemeModeToggled value) themeModeToggled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllEventTypes value)? getAllEventTypes,
     TResult? Function(_Started value)? started,
+    TResult? Function(_ThemeModeToggled value)? themeModeToggled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllEventTypes value)? getAllEventTypes,
     TResult Function(_Started value)? started,
+    TResult Function(_ThemeModeToggled value)? themeModeToggled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$_GetAllEventTypes implements _GetAllEventTypes {
   TResult when<TResult extends Object?>({
     required TResult Function() getAllEventTypes,
     required TResult Function() started,
+    required TResult Function(ThemeMode themeMode) themeModeToggled,
   }) {
     return getAllEventTypes();
   }
@@ -122,6 +129,7 @@ class _$_GetAllEventTypes implements _GetAllEventTypes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllEventTypes,
     TResult? Function()? started,
+    TResult? Function(ThemeMode themeMode)? themeModeToggled,
   }) {
     return getAllEventTypes?.call();
   }
@@ -131,6 +139,7 @@ class _$_GetAllEventTypes implements _GetAllEventTypes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllEventTypes,
     TResult Function()? started,
+    TResult Function(ThemeMode themeMode)? themeModeToggled,
     required TResult orElse(),
   }) {
     if (getAllEventTypes != null) {
@@ -144,6 +153,7 @@ class _$_GetAllEventTypes implements _GetAllEventTypes {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllEventTypes value) getAllEventTypes,
     required TResult Function(_Started value) started,
+    required TResult Function(_ThemeModeToggled value) themeModeToggled,
   }) {
     return getAllEventTypes(this);
   }
@@ -153,6 +163,7 @@ class _$_GetAllEventTypes implements _GetAllEventTypes {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllEventTypes value)? getAllEventTypes,
     TResult? Function(_Started value)? started,
+    TResult? Function(_ThemeModeToggled value)? themeModeToggled,
   }) {
     return getAllEventTypes?.call(this);
   }
@@ -162,6 +173,7 @@ class _$_GetAllEventTypes implements _GetAllEventTypes {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllEventTypes value)? getAllEventTypes,
     TResult Function(_Started value)? started,
+    TResult Function(_ThemeModeToggled value)? themeModeToggled,
     required TResult orElse(),
   }) {
     if (getAllEventTypes != null) {
@@ -214,6 +226,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() getAllEventTypes,
     required TResult Function() started,
+    required TResult Function(ThemeMode themeMode) themeModeToggled,
   }) {
     return started();
   }
@@ -223,6 +236,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllEventTypes,
     TResult? Function()? started,
+    TResult? Function(ThemeMode themeMode)? themeModeToggled,
   }) {
     return started?.call();
   }
@@ -232,6 +246,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllEventTypes,
     TResult Function()? started,
+    TResult Function(ThemeMode themeMode)? themeModeToggled,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -245,6 +260,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllEventTypes value) getAllEventTypes,
     required TResult Function(_Started value) started,
+    required TResult Function(_ThemeModeToggled value) themeModeToggled,
   }) {
     return started(this);
   }
@@ -254,6 +270,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllEventTypes value)? getAllEventTypes,
     TResult? Function(_Started value)? started,
+    TResult? Function(_ThemeModeToggled value)? themeModeToggled,
   }) {
     return started?.call(this);
   }
@@ -263,6 +280,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllEventTypes value)? getAllEventTypes,
     TResult Function(_Started value)? started,
+    TResult Function(_ThemeModeToggled value)? themeModeToggled,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -277,10 +295,154 @@ abstract class _Started implements AppEvent {
 }
 
 /// @nodoc
+abstract class _$$_ThemeModeToggledCopyWith<$Res> {
+  factory _$$_ThemeModeToggledCopyWith(
+          _$_ThemeModeToggled value, $Res Function(_$_ThemeModeToggled) then) =
+      __$$_ThemeModeToggledCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ThemeMode themeMode});
+}
+
+/// @nodoc
+class __$$_ThemeModeToggledCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_ThemeModeToggled>
+    implements _$$_ThemeModeToggledCopyWith<$Res> {
+  __$$_ThemeModeToggledCopyWithImpl(
+      _$_ThemeModeToggled _value, $Res Function(_$_ThemeModeToggled) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? themeMode = null,
+  }) {
+    return _then(_$_ThemeModeToggled(
+      themeMode: null == themeMode
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as ThemeMode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ThemeModeToggled implements _ThemeModeToggled {
+  const _$_ThemeModeToggled({required this.themeMode});
+
+  @override
+  final ThemeMode themeMode;
+
+  @override
+  String toString() {
+    return 'AppEvent.themeModeToggled(themeMode: $themeMode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ThemeModeToggled &&
+            (identical(other.themeMode, themeMode) ||
+                other.themeMode == themeMode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, themeMode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ThemeModeToggledCopyWith<_$_ThemeModeToggled> get copyWith =>
+      __$$_ThemeModeToggledCopyWithImpl<_$_ThemeModeToggled>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllEventTypes,
+    required TResult Function() started,
+    required TResult Function(ThemeMode themeMode) themeModeToggled,
+  }) {
+    return themeModeToggled(themeMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllEventTypes,
+    TResult? Function()? started,
+    TResult? Function(ThemeMode themeMode)? themeModeToggled,
+  }) {
+    return themeModeToggled?.call(themeMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllEventTypes,
+    TResult Function()? started,
+    TResult Function(ThemeMode themeMode)? themeModeToggled,
+    required TResult orElse(),
+  }) {
+    if (themeModeToggled != null) {
+      return themeModeToggled(themeMode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllEventTypes value) getAllEventTypes,
+    required TResult Function(_Started value) started,
+    required TResult Function(_ThemeModeToggled value) themeModeToggled,
+  }) {
+    return themeModeToggled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllEventTypes value)? getAllEventTypes,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ThemeModeToggled value)? themeModeToggled,
+  }) {
+    return themeModeToggled?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllEventTypes value)? getAllEventTypes,
+    TResult Function(_Started value)? started,
+    TResult Function(_ThemeModeToggled value)? themeModeToggled,
+    required TResult orElse(),
+  }) {
+    if (themeModeToggled != null) {
+      return themeModeToggled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ThemeModeToggled implements AppEvent {
+  const factory _ThemeModeToggled({required final ThemeMode themeMode}) =
+      _$_ThemeModeToggled;
+
+  ThemeMode get themeMode;
+  @JsonKey(ignore: true)
+  _$$_ThemeModeToggledCopyWith<_$_ThemeModeToggled> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AppState {
   Option<Either<EventsFailure, List<EventTypeObject>>>
-      get failureOrListOption => throw _privateConstructorUsedError;
+      get failureOrEventTypeListOption => throw _privateConstructorUsedError;
+  Option<Either<AppFailure, List<YearGroupObject>>>
+      get failureOrYearGroupListOption => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  ThemeMode get themeMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -293,8 +455,12 @@ abstract class $AppStateCopyWith<$Res> {
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
   $Res call(
-      {Option<Either<EventsFailure, List<EventTypeObject>>> failureOrListOption,
-      bool isLoading});
+      {Option<Either<EventsFailure, List<EventTypeObject>>>
+          failureOrEventTypeListOption,
+      Option<Either<AppFailure, List<YearGroupObject>>>
+          failureOrYearGroupListOption,
+      bool isLoading,
+      ThemeMode themeMode});
 }
 
 /// @nodoc
@@ -310,18 +476,28 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failureOrListOption = null,
+    Object? failureOrEventTypeListOption = null,
+    Object? failureOrYearGroupListOption = null,
     Object? isLoading = null,
+    Object? themeMode = null,
   }) {
     return _then(_value.copyWith(
-      failureOrListOption: null == failureOrListOption
-          ? _value.failureOrListOption
-          : failureOrListOption // ignore: cast_nullable_to_non_nullable
+      failureOrEventTypeListOption: null == failureOrEventTypeListOption
+          ? _value.failureOrEventTypeListOption
+          : failureOrEventTypeListOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<EventsFailure, List<EventTypeObject>>>,
+      failureOrYearGroupListOption: null == failureOrYearGroupListOption
+          ? _value.failureOrYearGroupListOption
+          : failureOrYearGroupListOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AppFailure, List<YearGroupObject>>>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      themeMode: null == themeMode
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as ThemeMode,
     ) as $Val);
   }
 }
@@ -334,8 +510,12 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Option<Either<EventsFailure, List<EventTypeObject>>> failureOrListOption,
-      bool isLoading});
+      {Option<Either<EventsFailure, List<EventTypeObject>>>
+          failureOrEventTypeListOption,
+      Option<Either<AppFailure, List<YearGroupObject>>>
+          failureOrYearGroupListOption,
+      bool isLoading,
+      ThemeMode themeMode});
 }
 
 /// @nodoc
@@ -349,18 +529,28 @@ class __$$_AppStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? failureOrListOption = null,
+    Object? failureOrEventTypeListOption = null,
+    Object? failureOrYearGroupListOption = null,
     Object? isLoading = null,
+    Object? themeMode = null,
   }) {
     return _then(_$_AppState(
-      failureOrListOption: null == failureOrListOption
-          ? _value.failureOrListOption
-          : failureOrListOption // ignore: cast_nullable_to_non_nullable
+      failureOrEventTypeListOption: null == failureOrEventTypeListOption
+          ? _value.failureOrEventTypeListOption
+          : failureOrEventTypeListOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<EventsFailure, List<EventTypeObject>>>,
+      failureOrYearGroupListOption: null == failureOrYearGroupListOption
+          ? _value.failureOrYearGroupListOption
+          : failureOrYearGroupListOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AppFailure, List<YearGroupObject>>>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      themeMode: null == themeMode
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as ThemeMode,
     ));
   }
 }
@@ -369,17 +559,25 @@ class __$$_AppStateCopyWithImpl<$Res>
 
 class _$_AppState implements _AppState {
   const _$_AppState(
-      {required this.failureOrListOption, required this.isLoading});
+      {required this.failureOrEventTypeListOption,
+      required this.failureOrYearGroupListOption,
+      required this.isLoading,
+      required this.themeMode});
 
   @override
   final Option<Either<EventsFailure, List<EventTypeObject>>>
-      failureOrListOption;
+      failureOrEventTypeListOption;
+  @override
+  final Option<Either<AppFailure, List<YearGroupObject>>>
+      failureOrYearGroupListOption;
   @override
   final bool isLoading;
+  @override
+  final ThemeMode themeMode;
 
   @override
   String toString() {
-    return 'AppState(failureOrListOption: $failureOrListOption, isLoading: $isLoading)';
+    return 'AppState(failureOrEventTypeListOption: $failureOrEventTypeListOption, failureOrYearGroupListOption: $failureOrYearGroupListOption, isLoading: $isLoading, themeMode: $themeMode)';
   }
 
   @override
@@ -387,14 +585,23 @@ class _$_AppState implements _AppState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AppState &&
-            (identical(other.failureOrListOption, failureOrListOption) ||
-                other.failureOrListOption == failureOrListOption) &&
+            (identical(other.failureOrEventTypeListOption,
+                    failureOrEventTypeListOption) ||
+                other.failureOrEventTypeListOption ==
+                    failureOrEventTypeListOption) &&
+            (identical(other.failureOrYearGroupListOption,
+                    failureOrYearGroupListOption) ||
+                other.failureOrYearGroupListOption ==
+                    failureOrYearGroupListOption) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.themeMode, themeMode) ||
+                other.themeMode == themeMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOrListOption, isLoading);
+  int get hashCode => Object.hash(runtimeType, failureOrEventTypeListOption,
+      failureOrYearGroupListOption, isLoading, themeMode);
 
   @JsonKey(ignore: true)
   @override
@@ -406,13 +613,22 @@ class _$_AppState implements _AppState {
 abstract class _AppState implements AppState {
   const factory _AppState(
       {required final Option<Either<EventsFailure, List<EventTypeObject>>>
-          failureOrListOption,
-      required final bool isLoading}) = _$_AppState;
+          failureOrEventTypeListOption,
+      required final Option<Either<AppFailure, List<YearGroupObject>>>
+          failureOrYearGroupListOption,
+      required final bool isLoading,
+      required final ThemeMode themeMode}) = _$_AppState;
 
   @override
-  Option<Either<EventsFailure, List<EventTypeObject>>> get failureOrListOption;
+  Option<Either<EventsFailure, List<EventTypeObject>>>
+      get failureOrEventTypeListOption;
+  @override
+  Option<Either<AppFailure, List<YearGroupObject>>>
+      get failureOrYearGroupListOption;
   @override
   bool get isLoading;
+  @override
+  ThemeMode get themeMode;
   @override
   @JsonKey(ignore: true)
   _$$_AppStateCopyWith<_$_AppState> get copyWith =>

@@ -20,5 +20,7 @@ class EventDetailsEvent with _$EventDetailsEvent {
   const factory EventDetailsEvent.editPressed() = _EditPressed;
   const factory EventDetailsEvent.editCancelled({required EventObject event}) =
       _EditCancelled;
+  const factory EventDetailsEvent.latenessRuleChanged(
+      {required String latenessRule}) = _LatenessRuleChanged;
   const factory EventDetailsEvent.savePressed() = _SavePressed;
 }

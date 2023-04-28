@@ -4,12 +4,17 @@ part of 'app_bloc.dart';
 class AppState with _$AppState {
   const factory AppState({
     required Option<Either<EventsFailure, List<EventTypeObject>>>
-        failureOrListOption,
+        failureOrEventTypeListOption,
+    required Option<Either<AppFailure, List<YearGroupObject>>>
+        failureOrYearGroupListOption,
     required bool isLoading,
+    required ThemeMode themeMode,
   }) = _AppState;
 
   factory AppState.initial() => AppState(
-        failureOrListOption: none(),
+        failureOrEventTypeListOption: none(),
+        failureOrYearGroupListOption: none(),
         isLoading: false,
+        themeMode: ThemeMode.system,
       );
 }

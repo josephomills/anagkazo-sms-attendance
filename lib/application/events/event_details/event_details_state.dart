@@ -11,21 +11,24 @@ class EventDetailsState with _$EventDetailsState {
     EventTypeObject? eventType,
     required DateTime date,
     required TimeOfDay time,
+    required String latenessRule,
     required final bool isEditing,
     required final bool isLoading,
     required final Option<Either<EventsFailure, List<EventTypeObject>>>
-        failureOrListOption,
+        failureOrEventTypeListOption,
   }) = _EventDetailsState;
 
   factory EventDetailsState.initial() => EventDetailsState(
         failureOrSuccessOption: none(),
         failureOrUnitOption: none(),
-        failureOrListOption: getIt<AppBloc>().state.failureOrListOption,
+        failureOrEventTypeListOption:
+            getIt<AppBloc>().state.failureOrEventTypeListOption,
         deleteConfirmation: false,
         eventName: "",
         date: DateTime.now().toUtc(),
         time: TimeOfDay.now(),
         isEditing: false,
         isLoading: false,
+        latenessRule: "",
       );
 }

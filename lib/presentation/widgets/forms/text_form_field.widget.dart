@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class TextFormFieldWidget extends StatelessWidget {
   const TextFormFieldWidget({
     Key? key,
-    required this.text,
+    this.text,
     this.validator,
     this.onChanged,
+    this.onTap,
     required this.label,
     required this.hint,
     this.prefixIcon,
@@ -15,13 +16,14 @@ class TextFormFieldWidget extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.next,
     this.enabled,
-    this.controller,
+    this.readOnly = false,
     this.allowInteractiveSelection,
   }) : super(key: key);
 
-  final String text;
+  final String? text;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
+  final void Function()? onTap;
   final String label;
   final String hint;
   final Widget? prefixIcon;
@@ -31,16 +33,16 @@ class TextFormFieldWidget extends StatelessWidget {
   final TextInputType keyboardType;
   final TextInputAction? textInputAction;
   final bool? enabled;
-  final TextEditingController? controller;
+  final bool readOnly;
   final bool? allowInteractiveSelection;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       enabled: enabled,
+      readOnly: readOnly,
       enableInteractiveSelection: allowInteractiveSelection,
       initialValue: text,
-      // controller: TextEditingController(text: text),
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       textCapitalization: TextCapitalization.none,
@@ -56,6 +58,7 @@ class TextFormFieldWidget extends StatelessWidget {
           ),
       validator: validator,
       onChanged: onChanged,
+      onTap: onTap,
     );
   }
 }

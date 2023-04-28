@@ -14,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 class AddEventPage extends StatelessWidget implements AutoRouteWrapper {
   AddEventPage({Key? key}) : super(key: key);
@@ -40,7 +39,7 @@ class AddEventPage extends StatelessWidget implements AutoRouteWrapper {
                   constraints: const BoxConstraints.expand(height: 240),
                   builder: (_) {
                     return BlocProvider.value(
-                      value: BlocProvider.of<AddEventBloc>(context),
+                      value: context.read<AddEventBloc>(),
                       child: ConfirmationModalWidget(
                         isLoading: state.isLoading,
                         title: "Success!",
@@ -80,23 +79,22 @@ class AddEventPage extends StatelessWidget implements AutoRouteWrapper {
                   TextFormFieldWidget(
                     text: state.eventName,
                     validator: getIt<Validator>().validateEventName,
-                    onChanged: (text) => BlocProvider.of<AddEventBloc>(context)
+                    onChanged: (text) => context
+                        .read<AddEventBloc>()
                         .add(AddEventEvent.nameChanged(eventName: text)),
                     label: "Event name",
                     hint: "Name of event",
                     enabled: !state.isLoading,
-                    suffixIcon: const Icon(
-                      LineAwesomeIcons.info_circle,
-                      size: 30,
-                    ),
+                    suffixIcon: const Icon(LineAwesomeIcons.info_circle),
                   ),
                   const SizedBox(height: 16),
                   // EventType
                   DropdownButtonFormField<String>(
+                    validator: getIt<Validator>().validateEventType,
                     iconSize: 28,
                     items: getIt<AppBloc>()
                         .state
-                        .failureOrListOption
+                        .failureOrEventTypeListOption
                         .getOrElse(() => const Right([]))
                         .getOrElse(() => [])
                         .map((e) => DropdownMenuItem<String>(
@@ -105,99 +103,69 @@ class AddEventPage extends StatelessWidget implements AutoRouteWrapper {
                             ))
                         .toList(),
                     onChanged: (value) {
-                      BlocProvider.of<AddEventBloc>(context)
+                      context
+                          .read<AddEventBloc>()
                           .add(AddEventEvent.eventTypeChanged(
-                        eventType: getIt<AppBloc>()
-                            .state
-                            .failureOrListOption
-                            .getOrElse(() => const Right([]))
-                            .getOrElse(() => [])
-                            .firstWhere(
-                                (e) => value == "${e.name!} - ${e.category!}"),
-                      ));
+                            eventType: getIt<AppBloc>()
+                                .state
+                                .failureOrEventTypeListOption
+                                .getOrElse(() => const Right([]))
+                                .getOrElse(() => [])
+                                .firstWhere((e) =>
+                                    value == "${e.name!} - ${e.category!}"),
+                          ));
                     },
                     hint: const Text("Select event type..."),
                   ),
                   const SizedBox(height: 16),
 
                   // Date picker
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: ResponsiveWrapper.of(context).scaledWidth * 0.8,
-                        child: TextFormFieldWidget(
-                          text: Moment(state.date).formatDateWithWeekdayShort(),
-                          label: "Event date",
-                          hint: "When does this event occur?",
-                          enabled: false,
-                        ),
-                      ),
-                      IconButton(
-                        icon: const Icon(
-                          LineAwesomeIcons.calendar,
-                          size: 30,
-                        ),
-                        onPressed: () async {
-                          DateTime? pickedDate = await showDatePicker(
-                            context: context,
-                            initialDate: DateTime.now().toUtc(),
-                            firstDate: DateTime.now().toUtc().startOfYear(),
-                            lastDate: DateTime.now().toUtc().endOfYear(),
-                          );
-
-                          if (pickedDate != null) {
-                            BlocProvider.of<AddEventBloc>(context).add(
-                                AddEventEvent.dateChanged(date: pickedDate));
-                          }
-                        },
-                      ),
-                    ],
+                  TextFormFieldWidget(
+                    key: UniqueKey(),
+                    text: Moment(state.date).formatDateWithWeekdayShort(),
+                    label: "Event date",
+                    hint: "When does this event occur?",
+                    readOnly: true,
+                    onTap: () async => await pickDate(context),
+                    suffixIcon: const Icon(LineAwesomeIcons.calendar),
                   ),
                   const SizedBox(height: 16),
 
                   // Time picker
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: ResponsiveWrapper.of(context).scaledWidth * 0.8,
-                        child: TextFormFieldWidget(
-                          text: Moment(DateTime(
-                            state.date.year,
-                            state.date.month,
-                            state.date.day,
-                            state.time.hour,
-                            state.time.minute,
-                          )).formatTime(),
-                          label: "Start time",
-                          hint: "What time does this event start?",
-                          enabled: false,
-                        ),
-                      ),
-                      IconButton(
-                        icon: const Icon(
-                          LineAwesomeIcons.clock,
-                          size: 30,
-                        ),
-                        onPressed: () async {
-                          TimeOfDay? pickedTime = await showTimePicker(
-                            context: context,
-                            initialTime: TimeOfDay.now(),
-                          );
+                  TextFormFieldWidget(
+                    key: UniqueKey(),
+                    text: Moment(DateTime(
+                      state.date.year,
+                      state.date.month,
+                      state.date.day,
+                      state.time.hour,
+                      state.time.minute,
+                    )).formatTime(),
+                    label: "Start time",
+                    hint: "What time does this event start?",
+                    readOnly: true,
+                    onTap: () async => await pickTime(context),
+                    suffixIcon: const Icon(LineAwesomeIcons.clock),
+                  ),
+                  const SizedBox(height: 16),
 
-                          if (pickedTime != null) {
-                            BlocProvider.of<AddEventBloc>(context).add(
-                                AddEventEvent.timeChanged(time: pickedTime));
-                          }
-                        },
-                      ),
-                    ],
+                  // Lateness rule
+                  TextFormFieldWidget(
+                    text: state.latenessRule,
+                    validator: getIt<Validator>().validateLatenessRule,
+                    onChanged: (text) => context.read<AddEventBloc>().add(
+                        AddEventEvent.latenessRuleChanged(latenessRule: text)),
+                    label: "Lateness rule (minutes)",
+                    hint: "How many minutes are students allowed to be late?",
+                    enabled: !state.isLoading,
+                    suffixIcon: const Icon(LineAwesomeIcons.hourglass_half),
+                    keyboardType: TextInputType.phone,
                   ),
 
                   const SizedBox(height: 32),
                   ButtonWidget(
-                    onTap: () => BlocProvider.of<AddEventBloc>(context)
+                    onTap: () => context
+                        .read<AddEventBloc>()
                         .add(AddEventEvent.savePressed(formKey: _formKey)),
                     isLoading: state.isLoading,
                     label: "Create Event",
@@ -212,10 +180,38 @@ class AddEventPage extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
+  Future<void> pickDate(BuildContext context) async {
+    DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now().toUtc(),
+      firstDate: DateTime.now().toUtc().startOfYear(),
+      lastDate: DateTime.now().toUtc().endOfYear(),
+    );
+
+    if (context.mounted && pickedDate != null) {
+      context
+          .read<AddEventBloc>()
+          .add(AddEventEvent.dateChanged(date: pickedDate));
+    }
+  }
+
+  Future<void> pickTime(BuildContext context) async {
+    TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+
+    if (context.mounted && pickedTime != null) {
+      context
+          .read<AddEventBloc>()
+          .add(AddEventEvent.timeChanged(time: pickedTime));
+    }
+  }
+
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
-      create: (_) => getIt<AddEventBloc>(),
+      create: (context) => getIt<AddEventBloc>(),
       child: this,
     );
   }

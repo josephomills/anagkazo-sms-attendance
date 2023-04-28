@@ -9,6 +9,7 @@ class AddEventState with _$AddEventState {
     EventTypeObject? eventType,
     required DateTime date,
     required TimeOfDay time,
+    required String latenessRule,
     required Option<Either<EventsFailure, EventObject>> failureOrSuccessOption,
   }) = _AddEventState;
 
@@ -19,5 +20,6 @@ class AddEventState with _$AddEventState {
         date: DateTime.now().toUtc(),
         time: TimeOfDay.now(),
         failureOrSuccessOption: none(),
+        latenessRule: "15",
       );
 }

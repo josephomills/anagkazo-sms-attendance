@@ -74,4 +74,25 @@ class Validator {
 
     return str;
   }
+
+  String? validateEventType(String? eventType) {
+    String? str;
+
+    if (eventType == null) {
+      str = "Please select an event type";
+    }
+
+    return str;
+  }
+
+  String? validateLatenessRule(String? latenessRule) {
+    final validTime = int.tryParse(latenessRule!);
+
+    String? str;
+    if (validTime == null) {
+      str = "Please enter a valid number (of minutes)";
+    }
+
+    return str;
+  }
 }

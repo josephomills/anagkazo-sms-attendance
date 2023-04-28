@@ -1,3 +1,5 @@
+import 'package:attendance/application/app/app_bloc.dart';
+import 'package:attendance/domain/core/config/injectable.core.dart';
 import 'package:attendance/presentation/navigation/autoroute.gr.dart';
 import 'package:attendance/presentation/widgets/bottom_nav.widget.dart';
 import 'package:attendance/presentation/widgets/fab.widget.dart';
@@ -10,20 +12,21 @@ class IndexPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    getIt<AppBloc>().add(const AppEvent.started());
     return AutoTabsScaffold(
       homeIndex: NavIndex.home,
       routes: const [
         HomeRoute(),
         EventsRoute(),
-        ReportsRoute(),
+        EventTypesRoute(),
+        MoreRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return const BottomNavWidget();
       },
       floatingActionButtonBuilder: (context, tabsRouter) {
-        return (tabsRouter.activeIndex == NavIndex.home ||
-                tabsRouter.activeIndex == NavIndex.events)
-            ? const FABWidget()
+        return (tabsRouter.activeIndex <= 2)
+            ? FabWidget(page: tabsRouter.activeIndex)
             : null;
       },
     );
@@ -35,4 +38,5 @@ class NavIndex {
   static const int home = 0;
   static const int events = 1;
   static const int reports = 2;
+  static const int more = 3;
 }

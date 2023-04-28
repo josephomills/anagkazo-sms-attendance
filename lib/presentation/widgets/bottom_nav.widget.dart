@@ -12,11 +12,9 @@ class BottomNavWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 56, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
       decoration: BoxDecoration(
-        color: Theme.of(context).brightness == Brightness.dark
-            ? Theme.of(context).colorScheme.surface
-            : Colors.white,
+        color: Theme.of(context).colorScheme.background,
         boxShadow: [
           BoxShadow(
             blurRadius: 20,
@@ -45,12 +43,16 @@ class BottomNavWidget extends StatelessWidget {
             text: "Home",
           ),
           GButton(
-            icon: LineAwesomeIcons.calendar,
+            icon: LineAwesomeIcons.calendar_with_week_focus,
             text: "Events",
           ),
           GButton(
-            icon: LineAwesomeIcons.pie_chart,
-            text: "Reports",
+            icon: LineAwesomeIcons.users,
+            text: "Event Types",
+          ),
+          GButton(
+            icon: LineAwesomeIcons.bars,
+            text: "More",
           ),
         ],
       ),

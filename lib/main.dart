@@ -38,7 +38,7 @@ class AnagkazoSMSAttendanceManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppBloc, AppState>(
-      bloc: getIt<AppBloc>()..add(const AppEvent.started()),
+      bloc: getIt<AppBloc>(),
       listener: (context, state) {
         // TODO: implement listener
       },
@@ -46,7 +46,7 @@ class AnagkazoSMSAttendanceManager extends StatelessWidget {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: 'ASMS Attendance Manager',
-          themeMode: ThemeMode.system,
+          themeMode: state.themeMode,
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,
           routerDelegate: _appRouter.delegate(),

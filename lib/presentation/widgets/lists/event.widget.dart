@@ -33,9 +33,9 @@ class EventWidget extends StatelessWidget {
         size: 32,
       ),
       trailing: SizedBox(
-        width: 96,
+        width: 120,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
               width: 72,
@@ -51,7 +51,8 @@ class EventWidget extends StatelessWidget {
           ],
         ),
       ),
-      onTap: () => context.router.push(EventDetailsRoute(event: event)),
+      onTap: () =>
+          context.router.push(EventDetailsAndReportsRoute(event: event)),
     );
   }
 }

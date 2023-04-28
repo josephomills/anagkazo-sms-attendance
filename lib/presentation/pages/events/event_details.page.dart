@@ -93,10 +93,6 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
         return GestureDetector(
           onTap: () => unfocus(context),
           child: Scaffold(
-            appBar: AppBar(
-              title: Text(context.router.current.meta["title"]),
-              actions: getActions(state: state, context: context),
-            ),
             body: Stack(
               children: [
                 Form(
@@ -105,6 +101,23 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.all(16),
                     children: [
+                      // options
+                      Container(
+                        height: 56,
+                        margin: EdgeInsets.symmetric(
+                          horizontal:
+                              ResponsiveWrapper.of(context).scaledWidth / 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.background,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: getActions(state: state, context: context),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
                       // Name
                       TextFormFieldWidget(
                         text: state.eventName.isEmpty
@@ -117,10 +130,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                         label: "Event name",
                         hint: "Name of event",
                         enabled: state.isEditing,
-                        suffixIcon: const Icon(
-                          LineAwesomeIcons.info_circle,
-                          size: 30,
-                        ),
+                        suffixIcon: const Icon(LineAwesomeIcons.info_circle),
                       ),
                       const SizedBox(height: 16),
 
@@ -139,7 +149,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                                       "${event.eventType!.name!} - ${event.eventType!.category!}"),
                                 ),
                               ]
-                            : state.failureOrListOption
+                            : state.failureOrEventTypeListOption
                                 .getOrElse(() => const Right([]))
                                 .getOrElse(() => [])
                                 .map((e) => DropdownMenuItem<String>(
@@ -152,7 +162,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                             ? (value) {
                                 BlocProvider.of<EventDetailsBloc>(context)
                                     .add(EventDetailsEvent.eventTypeChanged(
-                                  eventType: state.failureOrListOption
+                                  eventType: state.failureOrEventTypeListOption
                                       .getOrElse(() => const Right([]))
                                       .getOrElse(() => [])
                                       .firstWhere((e) =>
@@ -167,90 +177,53 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                       const SizedBox(height: 16),
 
                       // Date picker
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            width:
-                                ResponsiveWrapper.of(context).scaledWidth * 0.8,
-                            child: TextFormFieldWidget(
-                              text: Moment(state.date)
-                                  .formatDateWithWeekdayShort(),
-                              label: "Event date",
-                              hint: "When does this event occur?",
-                              enabled: false,
-                            ),
-                          ),
-                          IconButton(
-                            icon: const Icon(
-                              LineAwesomeIcons.calendar,
-                              size: 30,
-                            ),
-                            onPressed: state.isEditing
-                                ? () async {
-                                    DateTime? pickedDate = await showDatePicker(
-                                      context: context,
-                                      initialDate: event.startsAt!,
-                                      firstDate: event.startsAt!.startOfYear(),
-                                      lastDate: event.startsAt!.endOfYear(),
-                                    );
-
-                                    if (pickedDate != null) {
-                                      BlocProvider.of<EventDetailsBloc>(context)
-                                          .add(EventDetailsEvent.dateChanged(
-                                              date: pickedDate));
-                                    }
-                                  }
-                                : null,
-                          )
-                        ],
+                      TextFormFieldWidget(
+                        text: Moment(state.date).formatDateWithWeekdayShort(),
+                        label: "Event date",
+                        hint: "When does this event occur?",
+                        readOnly: true,
+                        onTap: state.isEditing
+                            ? () async => await pickDate(context)
+                            : null,
+                        suffixIcon: const Icon(LineAwesomeIcons.calendar),
                       ),
                       const SizedBox(height: 16),
 
                       // Time picker
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            width:
-                                ResponsiveWrapper.of(context).scaledWidth * 0.8,
-                            child: TextFormFieldWidget(
-                              text: Moment(DateTime(
-                                state.date.year,
-                                state.date.month,
-                                state.date.day,
-                                state.time.hour,
-                                state.time.minute,
-                              )).formatTime(),
-                              validator: getIt<Validator>().validateUsername,
-                              label: "Start time",
-                              hint: "What time does this event start?",
-                              enabled: false,
-                            ),
-                          ),
-                          IconButton(
-                            icon: const Icon(
-                              LineAwesomeIcons.clock,
-                              size: 30,
-                            ),
-                            onPressed: state.isEditing
-                                ? () async {
-                                    TimeOfDay? pickedTime =
-                                        await showTimePicker(
-                                      context: context,
-                                      initialTime: TimeOfDay.fromDateTime(
-                                          event.startsAt!),
-                                    );
+                      TextFormFieldWidget(
+                        text: Moment(DateTime(
+                          state.date.year,
+                          state.date.month,
+                          state.date.day,
+                          state.time.hour,
+                          state.time.minute,
+                        )).formatTime(),
+                        label: "Start time",
+                        hint: "What time does this event start?",
+                        readOnly: true,
+                        onTap: state.isEditing
+                            ? () async => await pickTime(context)
+                            : null,
+                        suffixIcon: const Icon(LineAwesomeIcons.clock),
+                      ),
+                      const SizedBox(height: 16),
 
-                                    if (pickedTime != null) {
-                                      BlocProvider.of<EventDetailsBloc>(context)
-                                          .add(EventDetailsEvent.timeChanged(
-                                              time: pickedTime));
-                                    }
-                                  }
-                                : null,
-                          )
-                        ],
+                      // Lateness rule
+                      TextFormFieldWidget(
+                        text: state.latenessRule.isEmpty
+                            ? "${event.latenessRule!}"
+                            : state.latenessRule,
+                        validator: getIt<Validator>().validateLatenessRule,
+                        onChanged: (text) => context
+                            .read<EventDetailsBloc>()
+                            .add(EventDetailsEvent.latenessRuleChanged(
+                                latenessRule: text)),
+                        label: "Lateness rule (minutes)",
+                        hint:
+                            "How many minutes are students allowed to be late?",
+                        enabled: state.isEditing,
+                        suffixIcon: const Icon(LineAwesomeIcons.hourglass_half),
+                        keyboardType: TextInputType.phone,
                       ),
 
                       const SizedBox(height: 24),
@@ -377,6 +350,34 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
       create: (_) => getIt<EventDetailsBloc>(),
       child: this,
     );
+  }
+
+  Future<void> pickDate(BuildContext context) async {
+    DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: event.startsAt!,
+      firstDate: event.startsAt!.startOfYear(),
+      lastDate: event.startsAt!.endOfYear(),
+    );
+
+    if (context.mounted && pickedDate != null) {
+      context
+          .read<EventDetailsBloc>()
+          .add(EventDetailsEvent.dateChanged(date: pickedDate));
+    }
+  }
+
+  Future<void> pickTime(BuildContext context) async {
+    TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.fromDateTime(event.startsAt!),
+    );
+
+    if (context.mounted && pickedTime != null) {
+      context
+          .read<EventDetailsBloc>()
+          .add(EventDetailsEvent.timeChanged(time: pickedTime));
+    }
   }
 
   CustomPaint qrCode({

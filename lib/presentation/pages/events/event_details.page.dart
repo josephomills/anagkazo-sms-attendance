@@ -89,7 +89,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
           });
         }
       },
-      builder: (context, state) {
+      builder: (_, state) {
         return GestureDetector(
           onTap: () => unfocus(context),
           child: Scaffold(
@@ -178,6 +178,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
 
                       // Date picker
                       TextFormFieldWidget(
+                        key: UniqueKey(),
                         text: Moment(state.date).formatDateWithWeekdayShort(),
                         label: "Event date",
                         hint: "When does this event occur?",
@@ -191,6 +192,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
 
                       // Time picker
                       TextFormFieldWidget(
+                        key: UniqueKey(),
                         text: Moment(DateTime(
                           state.date.year,
                           state.date.month,

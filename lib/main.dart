@@ -45,7 +45,7 @@ class AnagkazoSMSAttendanceManager extends StatelessWidget {
       builder: (context, state) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          title: 'ASMS Attendance Manager',
+          title: 'Attendance Manager',
           themeMode: state.themeMode,
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,

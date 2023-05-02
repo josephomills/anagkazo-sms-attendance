@@ -60,10 +60,13 @@ class EventTypeWidget extends StatelessWidget {
                   ),
                   PopupMenuItem(
                     child: Row(
-                      children: const [
-                        Icon(LineAwesomeIcons.trash, color: Colors.red),
-                        SizedBox(width: 8),
-                        Text("Delete"),
+                      children: [
+                        Icon(
+                          LineAwesomeIcons.trash,
+                          color: Theme.of(context).colorScheme.error,
+                        ),
+                        const SizedBox(width: 8),
+                        const Text("Delete"),
                       ],
                     ),
                   ),

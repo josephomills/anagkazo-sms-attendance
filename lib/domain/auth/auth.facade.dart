@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:attendance/domain/auth/auth.failure.dart';
 import 'package:attendance/infrastructure/auth/dto/login.dto.dart';
 import 'package:attendance/infrastructure/auth/dto/register.dto.dart';

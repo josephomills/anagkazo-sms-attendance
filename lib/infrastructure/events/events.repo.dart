@@ -7,7 +7,7 @@ import 'package:dartz/dartz.dart';
 import 'package:attendance/infrastructure/events/models/event.object.dart';
 import 'package:attendance/domain/events/events.failure.dart';
 import 'package:injectable/injectable.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 @Injectable(as: EventsFacade)
 class EventsRepo implements EventsFacade {

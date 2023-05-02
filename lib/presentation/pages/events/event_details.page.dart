@@ -251,15 +251,10 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                                   type: ScanType.scanIn,
                                   fontFactor: 3,
                                 ),
-                                isLoading: false,
-                                label: "In",
+                                label: "Share (In)",
+                                fontSize: 16,
                                 widthFactor: 0.35,
-                                fontSize: 18,
-                                icon: Icon(
-                                  LineAwesomeIcons.share_square,
-                                  color:
-                                      Theme.of(context).colorScheme.onPrimary,
-                                ),
+                                icon: LineAwesomeIcons.share,
                               ),
                             ],
                           ),
@@ -280,15 +275,10 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                                   type: ScanType.scanOut,
                                   fontFactor: 3,
                                 ),
-                                isLoading: false,
-                                label: "Out",
+                                label: "Share (Out)",
+                                fontSize: 16,
                                 widthFactor: 0.35,
-                                fontSize: 18,
-                                icon: Icon(
-                                  LineAwesomeIcons.share_square_1,
-                                  color:
-                                      Theme.of(context).colorScheme.onPrimary,
-                                ),
+                                icon: LineAwesomeIcons.share,
                               ),
                             ],
                           )

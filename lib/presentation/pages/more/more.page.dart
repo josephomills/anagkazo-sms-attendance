@@ -1,4 +1,5 @@
 import 'package:attendance/presentation/navigation/autoroute.gr.dart';
+import 'package:attendance/presentation/widgets/logout.widget.dart';
 import 'package:attendance/presentation/widgets/more_tile.widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,8 @@ class MorePage extends StatelessWidget {
         title: Text(context.tabsRouter.current.meta["title"]),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(0),
+        padding: const EdgeInsets.symmetric(vertical: 32),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           // const SizedBox(height: 32),
           MoreTileWidget(
@@ -26,7 +28,10 @@ class MorePage extends StatelessWidget {
             icon: LineAwesomeIcons.alternate_sign_out,
             title: "Logout",
             color: Theme.of(context).colorScheme.error,
-            onTap: () {},
+            onTap: () => showModalBottomSheet(
+              context: context,
+              builder: (context) => const LogoutWidget(),
+            ),
           ),
         ],
       ),

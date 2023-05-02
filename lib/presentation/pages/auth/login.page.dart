@@ -83,12 +83,12 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                     const SizedBox(height: 30),
                     ButtonWidget(
                       onTap: () {
+                        unfocus(context);
                         BlocProvider.of<LoginBloc>(context)
                             .add(LoginButtonPressed(formKey: _formKey));
                       },
                       isLoading: state.isLoading,
                       label: "Login",
-                      spinnerColor: Theme.of(context).colorScheme.primary,
                       widthFactor: 0.8,
                     ),
                   ],

@@ -1,4 +1,4 @@
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 class RoleObject extends ParseObject implements ParseCloneable {
   RoleObject() : super(_kTableName);

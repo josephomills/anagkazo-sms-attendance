@@ -1,10 +1,9 @@
 import 'package:attendance/infrastructure/events/models/event_type.object.dart';
 import 'package:attendance/presentation/widgets/empty_state.widget.dart';
 import 'package:attendance/presentation/widgets/lists/event_type.widget.dart';
-import 'package:attendance/presentation/widgets/lists/skeleton_event.widget.dart';
 import 'package:attendance/presentation/widgets/lists/skeleton_event_type.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:skeletons/skeletons.dart';
 
 /// /// A live list of event types.
@@ -19,9 +18,11 @@ class EventTypeListWidget extends StatelessWidget {
       query: QueryBuilder<EventTypeObject>(EventTypeObject()),
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       scrollPhysics: const BouncingScrollPhysics(),
+      lazyLoading: false,
       listLoadingElement: SkeletonListView(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         itemCount: 10,
-        itemBuilder: (context, index) => const SkeletonEventWidget(),
+        itemBuilder: (context, index) => const SkeletonEventTypeWidget(),
       ),
       queryEmptyElement: const EmptyStateWidget(
         asset: "assets/illustrations/empty.png",
@@ -29,9 +30,7 @@ class EventTypeListWidget extends StatelessWidget {
       ),
       childBuilder: (context, snapshot) {
         if (snapshot.failed) {
-          return Center(
-            child: Image.asset("assets/illustrations/signal_searching.png"),
-          );
+          return const SkeletonEventTypeWidget();
         } else if (snapshot.hasData) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),

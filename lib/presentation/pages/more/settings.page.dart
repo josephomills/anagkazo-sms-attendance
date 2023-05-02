@@ -19,7 +19,7 @@ class SettingsPage extends StatelessWidget {
         bloc: getIt<AppBloc>(),
         builder: (context, state) {
           return ListView(
-            // padding: const EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 32),
             physics: const NeverScrollableScrollPhysics(),
             children: [
               ListTile(

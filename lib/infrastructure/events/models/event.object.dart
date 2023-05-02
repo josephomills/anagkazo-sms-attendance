@@ -1,6 +1,6 @@
 import 'package:attendance/infrastructure/events/models/event_type.object.dart';
 import 'package:attendance/infrastructure/events/models/year_group.object.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 class EventObject extends ParseObject implements ParseCloneable {
   EventObject() : super(_kTableName);

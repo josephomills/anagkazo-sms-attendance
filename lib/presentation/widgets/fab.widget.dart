@@ -11,7 +11,7 @@ class FabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
-      label: Text(page == 2 ? "Add Event Type" : "Add Event"),
+      label: Text(page == 2 ? "Add Category" : "Add Event"),
       icon: const Icon(LineAwesomeIcons.plus),
       onPressed: page == 2
           ? () => context.router.push(const AddEventTypeRoute())

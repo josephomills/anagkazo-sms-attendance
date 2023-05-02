@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:attendance/domain/auth/auth.facade.dart';
 import 'package:attendance/domain/auth/auth.failure.dart';
 import 'package:attendance/infrastructure/auth/dto/login.dto.dart';

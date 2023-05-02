@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:attendance/domain/auth/auth.facade.dart';
 import 'package:attendance/domain/core/config/injectable.core.dart';
 import 'package:attendance/infrastructure/auth/models/user.model.dart';

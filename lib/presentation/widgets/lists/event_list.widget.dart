@@ -3,7 +3,7 @@ import 'package:attendance/presentation/widgets/empty_state.widget.dart';
 import 'package:attendance/presentation/widgets/lists/event.widget.dart';
 import 'package:attendance/presentation/widgets/lists/skeleton_event.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:skeletons/skeletons.dart';
 
 /// /// A live list of events.
@@ -20,7 +20,10 @@ class EventListWidget extends StatelessWidget {
         ..includeObject([EventObject.kEventType]),
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       scrollPhysics: const BouncingScrollPhysics(),
+      lazyLoading: false,
+      listeningIncludes: const [EventObject.kEventType],
       listLoadingElement: SkeletonListView(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         itemCount: 10,
         itemBuilder: (context, index) => const SkeletonEventWidget(),
       ),
@@ -30,9 +33,7 @@ class EventListWidget extends StatelessWidget {
       ),
       childBuilder: (context, snapshot) {
         if (snapshot.failed) {
-          return Center(
-            child: Image.asset("assets/illustrations/signal_searching.png"),
-          );
+          return const SkeletonEventWidget();
         } else if (snapshot.hasData) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),

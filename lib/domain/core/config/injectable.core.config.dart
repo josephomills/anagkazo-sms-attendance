@@ -6,16 +6,17 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:attendance/application/app/app_bloc.dart' as _i13;
+import 'package:attendance/application/auth/auth/auth_bloc.dart' as _i14;
 import 'package:attendance/application/auth/login/login_bloc.dart' as _i10;
 import 'package:attendance/application/events/add_event/add_event_bloc.dart'
     as _i12;
 import 'package:attendance/application/events/event_details/event_details_bloc.dart'
-    as _i14;
-import 'package:attendance/application/events/event_reports/event_reports_bloc.dart'
     as _i15;
+import 'package:attendance/application/events/event_reports/event_reports_bloc.dart'
+    as _i16;
 import 'package:attendance/domain/app/app.facade.dart' as _i3;
 import 'package:attendance/domain/auth/auth.facade.dart' as _i5;
-import 'package:attendance/domain/core/config/injectable_modules.dart' as _i16;
+import 'package:attendance/domain/core/config/injectable_modules.dart' as _i17;
 import 'package:attendance/domain/core/util/validator.dart' as _i11;
 import 'package:attendance/domain/events/events.facade.dart' as _i7;
 import 'package:attendance/infrastructure/app/app.repo.dart' as _i4;
@@ -52,12 +53,13 @@ extension GetItInjectableX on _i1.GetIt {
       gh<_i7.EventsFacade>(),
       gh<_i3.AppFacade>(),
     ));
-    gh.factory<_i14.EventDetailsBloc>(
-        () => _i14.EventDetailsBloc(gh<_i7.EventsFacade>()));
-    gh.factory<_i15.EventReportsBloc>(
-        () => _i15.EventReportsBloc(gh<_i7.EventsFacade>()));
+    gh.singleton<_i14.AuthBloc>(_i14.AuthBloc(gh<_i5.AuthFacade>()));
+    gh.factory<_i15.EventDetailsBloc>(
+        () => _i15.EventDetailsBloc(gh<_i7.EventsFacade>()));
+    gh.factory<_i16.EventReportsBloc>(
+        () => _i16.EventReportsBloc(gh<_i7.EventsFacade>()));
     return this;
   }
 }
 
-class _$FormModule extends _i16.FormModule {}
+class _$FormModule extends _i17.FormModule {}

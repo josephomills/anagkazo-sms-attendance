@@ -12,7 +12,7 @@ class BottomNavWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
         boxShadow: [
@@ -48,7 +48,7 @@ class BottomNavWidget extends StatelessWidget {
           ),
           GButton(
             icon: LineAwesomeIcons.users,
-            text: "Event Types",
+            text: "Categories",
           ),
           GButton(
             icon: LineAwesomeIcons.bars,

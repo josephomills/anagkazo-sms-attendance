@@ -40,22 +40,21 @@ class ConfirmationModalWidget extends StatelessWidget {
         if (item != null) Text(item!),
         const SizedBox(height: 16),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ButtonWidget(
               onTap: cancelCallback,
               isLoading: false,
               label: cancelText,
-              widthFactor: 0.3,
-              fontSize: 18,
+              widthFactor: 0.35,
               backgroundColor: Theme.of(context).colorScheme.outline,
             ),
+            const SizedBox(width: 16),
             ButtonWidget(
               onTap: confirmCallback,
               isLoading: isLoading,
               label: confirmText,
-              widthFactor: 0.3,
-              fontSize: 18,
+              widthFactor: 0.35,
             ),
           ],
         ),

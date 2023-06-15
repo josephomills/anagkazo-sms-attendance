@@ -16,7 +16,6 @@ abstract class EventsFacade {
     required EventObject event,
     YearGroupObject? yearGroup,
     bool isLate = false,
-    bool isPunctual = false,
     bool isAbsent = false,
     bool isStudent = true,
   });

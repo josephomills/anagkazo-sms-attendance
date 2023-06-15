@@ -67,8 +67,14 @@ class ButtonWidget extends StatelessWidget {
     return icon == null
         ? ElevatedButton(
             style: Theme.of(context).elevatedButtonTheme.style!.copyWith(
-                  backgroundColor: MaterialStateProperty.all<Color?>(
-                      backgroundColor ?? Theme.of(context).colorScheme.primary),
+                  backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.disabled)) {
+                      return Theme.of(context).colorScheme.outline;
+                    }
+                    return backgroundColor ??
+                        Theme.of(context).colorScheme.primary;
+                  }),
                   fixedSize: MaterialStateProperty.all<Size>(
                     Size(
                       ResponsiveWrapper.of(context).scaledWidth * widthFactor,
@@ -95,8 +101,14 @@ class ButtonWidget extends StatelessWidget {
           )
         : ElevatedButton.icon(
             style: Theme.of(context).elevatedButtonTheme.style!.copyWith(
-                  backgroundColor: MaterialStateProperty.all<Color?>(
-                      backgroundColor ?? Theme.of(context).colorScheme.primary),
+                  backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.disabled)) {
+                      return Theme.of(context).colorScheme.outline;
+                    }
+                    return backgroundColor ??
+                        Theme.of(context).colorScheme.primary;
+                  }),
                   fixedSize: MaterialStateProperty.all<Size>(
                     Size(
                       ResponsiveWrapper.of(context).scaledWidth * widthFactor,

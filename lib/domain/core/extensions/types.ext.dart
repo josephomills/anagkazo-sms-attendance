@@ -54,3 +54,31 @@ extension EventCategoryExt on EventCategory {
     }
   }
 }
+
+extension EventReportTypeExt on EventReportType {
+  String get name {
+    switch (this) {
+      case EventReportType.absent:
+        return "Absentees Report";
+      case EventReportType.late:
+        return "Latecomers Report";
+      case EventReportType.full:
+        return "Full Report";
+      case EventReportType.lateOrAbsent:
+        return "Latecomers & Absentees Report";
+    }
+  }
+
+  String get value {
+    switch (this) {
+      case EventReportType.absent:
+        return "absent";
+      case EventReportType.late:
+        return "late";
+      case EventReportType.full:
+        return "full";
+      case EventReportType.lateOrAbsent:
+        return "lateOrAbsent";
+    }
+  }
+}

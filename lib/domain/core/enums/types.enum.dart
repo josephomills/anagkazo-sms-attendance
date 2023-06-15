@@ -13,3 +13,5 @@ enum EventType {
 }
 
 enum ScanType { scanIn, scanOut }
+
+enum EventReportType { full, late, absent, lateOrAbsent }

@@ -1,6 +1,8 @@
 import 'package:attendance/application/events/event_reports/event_reports_bloc.dart';
 import 'package:attendance/domain/app/app.failure.dart';
 import 'package:attendance/domain/core/config/injectable.core.dart';
+import 'package:attendance/domain/core/enums/types.enum.dart';
+import 'package:attendance/domain/core/extensions/types.ext.dart';
 import 'package:attendance/infrastructure/events/models/event.object.dart';
 import 'package:attendance/infrastructure/events/models/year_group.object.dart';
 import 'package:attendance/presentation/widgets/button.widget.dart';
@@ -35,7 +37,7 @@ class EventReportsPage extends StatelessWidget implements AutoRouteWrapper {
               ),
               const SizedBox(height: 16),
               // Year Group
-              DropdownButtonFormField(
+              DropdownButtonFormField<String>(
                 value: state.yearGroup,
                 items: buildYearGroupItems(
                     failureOrYearGroupListOption:
@@ -82,25 +84,21 @@ class EventReportsPage extends StatelessWidget implements AutoRouteWrapper {
 
   List<DropdownMenuItem<String>> get buildReportItems {
     return [
-      const DropdownMenuItem(
-        value: "full",
-        child: Text("Full Report"),
+      DropdownMenuItem(
+        value: EventReportType.full.value,
+        child: Text(EventReportType.full.name),
       ),
-      const DropdownMenuItem(
-        value: "punctual",
-        child: Text("Punctual Report"),
+      DropdownMenuItem(
+        value: EventReportType.late.value,
+        child: Text(EventReportType.late.name),
       ),
-      const DropdownMenuItem(
-        value: "late",
-        child: Text("Latecomers Report"),
+      DropdownMenuItem(
+        value: EventReportType.absent.value,
+        child: Text(EventReportType.absent.name),
       ),
-      const DropdownMenuItem(
-        value: "absentees",
-        child: Text("Absentees Report"),
-      ),
-      const DropdownMenuItem(
-        value: "latecomers-and-absentees",
-        child: Text("Latecomers & Absentees Report"),
+      DropdownMenuItem(
+        value: EventReportType.lateOrAbsent.value,
+        child: Text(EventReportType.lateOrAbsent.name),
       ),
     ];
   }

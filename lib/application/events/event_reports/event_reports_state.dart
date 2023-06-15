@@ -12,7 +12,7 @@ class EventReportsState with _$EventReportsState {
 
   factory EventReportsState.initial() => EventReportsState(
         isLoading: false,
-        reportType: "full",
+        reportType: EventReportType.full.value,
         yearGroup: "all",
         failureOrYearGroupListOption:
             getIt<AppBloc>().state.failureOrYearGroupListOption,

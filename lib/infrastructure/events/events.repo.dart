@@ -1,5 +1,5 @@
+import 'package:attendance/domain/core/config/injectable.core.dart';
 import 'package:attendance/domain/events/events.facade.dart';
-import 'package:attendance/infrastructure/auth/models/role.object.dart';
 import 'package:attendance/infrastructure/events/models/event_type.object.dart';
 import 'package:attendance/infrastructure/events/models/year_group.object.dart';
 import 'package:attendance/infrastructure/reports/models/scan.object.dart';
@@ -62,15 +62,14 @@ class EventsRepo implements EventsFacade {
     required EventObject event,
     YearGroupObject? yearGroup,
     bool isLate = false,
-    bool isPunctual = false,
     bool isAbsent = false,
     bool isStudent = true,
   }) async {
     // Get all users
-    var roleQuery = QueryBuilder<RoleObject>(RoleObject())
-      ..whereEqualTo(
-          RoleObject.kName, isStudent ? "Student" : "Staff") // Student or Staff
-      ..keysToReturn([RoleObject.kUsers]); // only return users
+    // var roleQuery = QueryBuilder<RoleObject>(RoleObject())
+    //   ..whereEqualTo(
+    //       RoleObject.kName, isStudent ? "Student" : "Staff") // Student or Staff
+    //   ..keysToReturn([RoleObject.kUsers]); // only return users
 
     // Punctual only
 
@@ -78,16 +77,53 @@ class EventsRepo implements EventsFacade {
 
     // Late only
 
-    var role = await roleQuery.first();
-    if (role != null) {
-      var users = role.users!;
+    // var role = await roleQuery.first();
+    // if (role != null) {
+    //   var users = role.users!;
 
-      // Get all scans, where user is a student
-      var scanQuery = QueryBuilder(ScanObject())
-        ..whereContainedIn(ScanObject.kUser, users);
+    //   // Get all scans, where user is a student
+    //   var scanQuery = QueryBuilder(ScanObject())
+    //     ..whereContainedIn(ScanObject.kUser, users);
+    // }
+
+    // Get all users
+    var usersQuery = QueryBuilder(getIt<ParseUser>())
+      ..whereEqualTo("isStudent", isStudent);
+
+    if (yearGroup != null) {
+      usersQuery.whereEqualTo("yearGroup", yearGroup.toPointer());
     }
 
-    // TODO: implement getAllScansForEvent
-    throw UnimplementedError();
+    final resp = await usersQuery.query();
+    if (resp.success && resp.results != null) {
+      final allUsers = resp.results!.map((user) => user as ParseUser).toList();
+
+      // Get all scans,
+      var scanQuery = QueryBuilder(ScanObject())
+        ..whereEqualTo(ScanObject.kEvent, event.toPointer())
+        ..whereContainedIn(ScanObject.kUser, allUsers)
+        ..includeObject([ScanObject.kUser]);
+
+      final scanResp = await scanQuery.query();
+      if (scanResp.success) {
+        // all valid scan objects
+        final allScans =
+            scanResp.results!.map((scan) => scan as ScanObject).toList();
+
+        // Get users who scanned
+        List<ParseUser> usersWhoScanned = [];
+
+        for (ScanObject scan in allScans) {
+          usersWhoScanned.add(scan.user!);
+        }
+        var resultScans = <ScanObject>[];
+        if (isAbsent) {
+          return Right(
+              allScans.toSet().difference(usersWhoScanned.toSet()).toList());
+        }
+      }
+    }
+
+    return const Left(EventsFailure.serverError());
   }
 }

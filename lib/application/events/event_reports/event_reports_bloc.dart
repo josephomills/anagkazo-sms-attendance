@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:attendance/application/app/app_bloc.dart';
 import 'package:attendance/domain/app/app.failure.dart';
 import 'package:attendance/domain/core/config/injectable.core.dart';
+import 'package:attendance/domain/core/enums/types.enum.dart';
+import 'package:attendance/domain/core/extensions/types.ext.dart';
 import 'package:attendance/domain/events/events.facade.dart';
 import 'package:attendance/infrastructure/events/models/event.object.dart';
 import 'package:attendance/infrastructure/events/models/year_group.object.dart';
@@ -42,6 +44,7 @@ class EventReportsBloc extends Bloc<EventReportsEvent, EventReportsState> {
             yearGroup = allYearGroups[selectedClassIndex];
           }
 
+          // TODO
           _eventsFacade.getAllScansForEvent(
               event: e.event, yearGroup: yearGroup);
 

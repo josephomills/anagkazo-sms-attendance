@@ -1,6 +1,6 @@
 import 'package:attendance/application/app/app_bloc.dart';
 import 'package:attendance/domain/core/config/injectable.core.dart';
-import 'package:attendance/infrastructure/core/parse.core.dart';
+import 'package:attendance/infrastructure/services/parse.service.dart';
 import 'package:attendance/presentation/navigation/auth_gard.core.dart';
 import 'package:attendance/presentation/navigation/autoroute.gr.dart';
 import 'package:attendance/presentation/theme/app_theme.dart';

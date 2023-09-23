@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ui' as ui;
 
@@ -13,19 +14,20 @@ import 'package:attendance/presentation/widgets/button.widget.dart';
 import 'package:attendance/presentation/widgets/confirmation_modal.widget.dart';
 import 'package:attendance/presentation/widgets/forms/text_form_field.widget.dart';
 import 'package:attendance/presentation/widgets/loader.widget.dart';
-import 'package:attendance/presentation/widgets/qr_code_footer_painter.widget.dart';
+import 'package:attendance/presentation/widgets/qr_code_painter.widget.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:custom_qr_generator/custom_qr_generator.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:zxing_lib/qrcode.dart';
+import 'package:skeletons/skeletons.dart';
 
+@RoutePage()
 class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
   EventDetailsPage({Key? key, required this.event}) : super(key: key);
 
@@ -236,12 +238,23 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                         children: [
                           Column(
                             children: [
-                              SizedBox(
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                color: Colors.white,
                                 width: 150,
                                 height: 150,
-                                child: qrCode(
-                                  context: context,
-                                  type: ScanType.scanIn,
+                                child: FutureBuilder(
+                                  future: qrCode(
+                                    type: ScanType.scanIn,
+                                    fontFactor: 0.4,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      return snapshot.data!;
+                                    } else {
+                                      return const SkeletonAvatar();
+                                    }
+                                  },
                                 ),
                               ),
                               const SizedBox(height: 16),
@@ -253,19 +266,30 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                                 ),
                                 label: "Share (In)",
                                 fontSize: 16,
-                                widthFactor: 0.35,
+                                widthFactor: 0.4,
                                 icon: LineAwesomeIcons.share,
                               ),
                             ],
                           ),
                           Column(
                             children: [
-                              SizedBox(
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                color: Colors.white,
                                 width: 150,
                                 height: 150,
-                                child: qrCode(
-                                  context: context,
-                                  type: ScanType.scanOut,
+                                child: FutureBuilder(
+                                  future: qrCode(
+                                    type: ScanType.scanOut,
+                                    fontFactor: 0.4,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasData) {
+                                      return snapshot.data!;
+                                    } else {
+                                      return const SkeletonAvatar();
+                                    }
+                                  },
                                 ),
                               ),
                               const SizedBox(height: 16),
@@ -277,7 +301,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
                                 ),
                                 label: "Share (Out)",
                                 fontSize: 16,
-                                widthFactor: 0.35,
+                                widthFactor: 0.4,
                                 icon: LineAwesomeIcons.share,
                               ),
                             ],
@@ -372,30 +396,35 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
     }
   }
 
-  CustomPaint qrCode({
-    required BuildContext context,
+  Future<CustomPaint> qrCode({
     required ScanType type,
     double? fontFactor = 0.4,
-  }) {
+    double? logoFactor = 1,
+  }) async {
+    final Completer<ui.Image> completer = Completer<ui.Image>();
+    final byteData = await rootBundle.load("assets/icon/logo.png");
+    ui.decodeImageFromList(byteData.buffer.asUint8List(), completer.complete);
+    final image = await completer.future;
+
+    final qr = await QrPainter(
+      data: jsonEncode({
+        "eventId": event.objectId!,
+        "type": type.value.toUpperCase(),
+      }),
+      errorCorrectionLevel: QrErrorCorrectLevel.H,
+      version: QrVersions.auto,
+    ).toImage(500);
+
     return CustomPaint(
-      painter: QrPainter(
-        data: jsonEncode({
-          "eventId": event.objectId,
-          "type": type.value.toUpperCase(),
-        }),
-        options: const QrOptions(padding: 0.25, ecl: ErrorCorrectionLevel.H),
-      ),
-      foregroundPainter: QRCodeFooterPainterWidget(
-        context: context,
+      painter: QRCodePainterWidget(
+        eventId: event.objectId!,
+        logo: image,
+        qr: qr,
         date:
             Moment(event.startsAt!).formatDateWithWeekdayShort().toUpperCase(),
         name: event.name!.toUpperCase(),
         fontFactor: fontFactor,
-      ),
-      child: Image.asset(
-        type == ScanType.scanIn
-            ? "assets/scan/scan_in.png"
-            : "assets/scan/scan_out.png",
+        scanType: "SCAN ${type.value.toUpperCase()}",
       ),
     );
   }
@@ -404,6 +433,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
     required BuildContext context,
     required ScanType type,
     double? fontFactor,
+    double? logoFactor,
   }) async {
     const double scale = 3;
     // Create canvas with recorder
@@ -412,29 +442,11 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
     var size = const Size(350 * scale, 350 * scale);
 
     // Paint QR code
-    qrCode(context: context, type: type).painter!.paint(canvas, size);
-    qrCode(context: context, type: type, fontFactor: fontFactor)
-        .foregroundPainter!
+    (await qrCode(type: type, fontFactor: fontFactor))
+        .painter!
         .paint(canvas, size);
 
-    var byteData = await rootBundle.load(type == ScanType.scanIn
-        ? "assets/scan/scan_in.png"
-        : "assets/scan/scan_out.png");
-
-    final codec = await ui.instantiateImageCodec(
-      byteData.buffer.asUint8List(),
-      targetHeight: size.width.floor(),
-      targetWidth: size.height.floor(),
-    );
-    var frame = await codec.getNextFrame();
-
-    canvas.drawImage(
-      frame.image,
-      Offset.zero,
-      Paint(),
-    );
-
-    // canvas.restore();
+    canvas.restore();
 
     // End recording and get image
     final img = await recorder

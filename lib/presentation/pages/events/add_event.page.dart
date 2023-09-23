@@ -15,6 +15,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
 
+@RoutePage()
 class AddEventPage extends StatelessWidget implements AutoRouteWrapper {
   AddEventPage({Key? key}) : super(key: key);
 

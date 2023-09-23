@@ -3,6 +3,7 @@ import 'package:attendance/presentation/widgets/lists/event_type_list_widget.dar
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class EventTypesPage extends StatelessWidget {
   const EventTypesPage({super.key});
 

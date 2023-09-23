@@ -9,6 +9,7 @@ import 'package:attendance/presentation/navigation/autoroute.gr.dart';
 import 'package:attendance/presentation/widgets/button.widget.dart';
 import 'package:attendance/presentation/widgets/forms/text_form_field.widget.dart';
 
+@RoutePage()
 class LoginPage extends StatelessWidget implements AutoRouteWrapper {
   LoginPage({Key? key}) : super(key: key);
 

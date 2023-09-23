@@ -12,7 +12,7 @@ Future<void> initParse() async {
     kServerUrl,
     clientKey: kClientKey,
     debug: true,
-    coreStore: await CoreStoreSembastImp.getInstance(),
+    coreStore: await CoreStoreSembast.getInstance(),
     liveQueryUrl: kliveQueryUrl,
     registeredSubClassMap: {
       "YearGroup": () => YearGroupObject(),

@@ -1,8 +1,7 @@
 import 'package:attendance/application/app/app_bloc.dart';
 import 'package:attendance/domain/core/config/injectable.core.dart';
 import 'package:attendance/infrastructure/services/parse.service.dart';
-import 'package:attendance/presentation/navigation/auth_gard.core.dart';
-import 'package:attendance/presentation/navigation/autoroute.gr.dart';
+import 'package:attendance/presentation/navigation/autoroute.dart';
 import 'package:attendance/presentation/theme/app_theme.dart';
 import 'package:attendance/presentation/widgets/loader.widget.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ Future<void> main() async {
 class AnagkazoSMSAttendanceManager extends StatelessWidget {
   AnagkazoSMSAttendanceManager({super.key});
 
-  final _appRouter = AppRouter(authGuard: AuthGuard());
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +50,22 @@ class AnagkazoSMSAttendanceManager extends StatelessWidget {
           darkTheme: AppTheme.dark,
           routerDelegate: _appRouter.delegate(),
           routeInformationParser: _appRouter.defaultRouteParser(),
-          builder: (context, widget) => Stack(
-            children: [
-              ResponsiveWrapper.builder(
-                BouncingScrollWrapper.builder(context, widget!),
-                defaultScale: true,
-              ),
-              if (state.isLoading) const LoaderWidget(),
-            ],
-          ),
+          builder: (context, widget) {
+            // register BuildContext
+            if (!getIt.isRegistered<BuildContext>()) {
+              getIt.registerSingleton<BuildContext>(context);
+            }
+
+            return Stack(
+              children: [
+                ResponsiveWrapper.builder(
+                  BouncingScrollWrapper.builder(context, widget!),
+                  defaultScale: true,
+                ),
+                if (state.isLoading) const LoaderWidget(),
+              ],
+            );
+          },
           locale: const Locale('en'),
         );
       },

@@ -56,4 +56,22 @@ extension StringExt on String {
         return EventCategory.other;
     }
   }
+
+  EventReportType get getEventReportType {
+    switch (this) {
+      case "late":
+      case "Late":
+        return EventReportType.late;
+      case "absent":
+      case "Absent":
+        return EventReportType.absent;
+      case "lateOrAbsent":
+      case "LateOrAbsent":
+        return EventReportType.lateOrAbsent;
+      case "full":
+      case "Full":
+      default:
+        return EventReportType.full;
+    }
+  }
 }

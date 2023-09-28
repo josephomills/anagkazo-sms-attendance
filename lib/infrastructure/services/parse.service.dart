@@ -11,7 +11,7 @@ Future<void> initParse() async {
     kAppId,
     kServerUrl,
     clientKey: kClientKey,
-    debug: true,
+    // debug: true,
     coreStore: await CoreStoreSembast.getInstance(),
     liveQueryUrl: kliveQueryUrl,
     registeredSubClassMap: {

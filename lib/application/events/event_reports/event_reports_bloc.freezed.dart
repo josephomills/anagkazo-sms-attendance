@@ -514,6 +514,8 @@ mixin _$EventReportsState {
   String? get yearGroup => throw _privateConstructorUsedError;
   Option<Either<AppFailure, List<YearGroupObject>>>
       get failureOrYearGroupListOption => throw _privateConstructorUsedError;
+  Option<Either<EventsFailure, Map<String, List>>> get failureOrReportsOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EventReportsStateCopyWith<EventReportsState> get copyWith =>
@@ -531,7 +533,8 @@ abstract class $EventReportsStateCopyWith<$Res> {
       String? reportType,
       String? yearGroup,
       Option<Either<AppFailure, List<YearGroupObject>>>
-          failureOrYearGroupListOption});
+          failureOrYearGroupListOption,
+      Option<Either<EventsFailure, Map<String, List>>> failureOrReportsOption});
 }
 
 /// @nodoc
@@ -551,6 +554,7 @@ class _$EventReportsStateCopyWithImpl<$Res, $Val extends EventReportsState>
     Object? reportType = freezed,
     Object? yearGroup = freezed,
     Object? failureOrYearGroupListOption = null,
+    Object? failureOrReportsOption = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -569,6 +573,10 @@ class _$EventReportsStateCopyWithImpl<$Res, $Val extends EventReportsState>
           ? _value.failureOrYearGroupListOption
           : failureOrYearGroupListOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AppFailure, List<YearGroupObject>>>,
+      failureOrReportsOption: null == failureOrReportsOption
+          ? _value.failureOrReportsOption
+          : failureOrReportsOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<EventsFailure, Map<String, List>>>,
     ) as $Val);
   }
 }
@@ -586,7 +594,8 @@ abstract class _$$_EventReportsStateCopyWith<$Res>
       String? reportType,
       String? yearGroup,
       Option<Either<AppFailure, List<YearGroupObject>>>
-          failureOrYearGroupListOption});
+          failureOrYearGroupListOption,
+      Option<Either<EventsFailure, Map<String, List>>> failureOrReportsOption});
 }
 
 /// @nodoc
@@ -604,6 +613,7 @@ class __$$_EventReportsStateCopyWithImpl<$Res>
     Object? reportType = freezed,
     Object? yearGroup = freezed,
     Object? failureOrYearGroupListOption = null,
+    Object? failureOrReportsOption = null,
   }) {
     return _then(_$_EventReportsState(
       isLoading: null == isLoading
@@ -622,6 +632,10 @@ class __$$_EventReportsStateCopyWithImpl<$Res>
           ? _value.failureOrYearGroupListOption
           : failureOrYearGroupListOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AppFailure, List<YearGroupObject>>>,
+      failureOrReportsOption: null == failureOrReportsOption
+          ? _value.failureOrReportsOption
+          : failureOrReportsOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<EventsFailure, Map<String, List>>>,
     ));
   }
 }
@@ -633,7 +647,8 @@ class _$_EventReportsState implements _EventReportsState {
       {required this.isLoading,
       required this.reportType,
       required this.yearGroup,
-      required this.failureOrYearGroupListOption});
+      required this.failureOrYearGroupListOption,
+      required this.failureOrReportsOption});
 
   @override
   final bool isLoading;
@@ -644,10 +659,12 @@ class _$_EventReportsState implements _EventReportsState {
   @override
   final Option<Either<AppFailure, List<YearGroupObject>>>
       failureOrYearGroupListOption;
+  @override
+  final Option<Either<EventsFailure, Map<String, List>>> failureOrReportsOption;
 
   @override
   String toString() {
-    return 'EventReportsState(isLoading: $isLoading, reportType: $reportType, yearGroup: $yearGroup, failureOrYearGroupListOption: $failureOrYearGroupListOption)';
+    return 'EventReportsState(isLoading: $isLoading, reportType: $reportType, yearGroup: $yearGroup, failureOrYearGroupListOption: $failureOrYearGroupListOption, failureOrReportsOption: $failureOrReportsOption)';
   }
 
   @override
@@ -664,12 +681,14 @@ class _$_EventReportsState implements _EventReportsState {
             (identical(other.failureOrYearGroupListOption,
                     failureOrYearGroupListOption) ||
                 other.failureOrYearGroupListOption ==
-                    failureOrYearGroupListOption));
+                    failureOrYearGroupListOption) &&
+            (identical(other.failureOrReportsOption, failureOrReportsOption) ||
+                other.failureOrReportsOption == failureOrReportsOption));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isLoading, reportType, yearGroup,
-      failureOrYearGroupListOption);
+      failureOrYearGroupListOption, failureOrReportsOption);
 
   @JsonKey(ignore: true)
   @override
@@ -685,7 +704,9 @@ abstract class _EventReportsState implements EventReportsState {
       required final String? reportType,
       required final String? yearGroup,
       required final Option<Either<AppFailure, List<YearGroupObject>>>
-          failureOrYearGroupListOption}) = _$_EventReportsState;
+          failureOrYearGroupListOption,
+      required final Option<Either<EventsFailure, Map<String, List>>>
+          failureOrReportsOption}) = _$_EventReportsState;
 
   @override
   bool get isLoading;
@@ -696,6 +717,8 @@ abstract class _EventReportsState implements EventReportsState {
   @override
   Option<Either<AppFailure, List<YearGroupObject>>>
       get failureOrYearGroupListOption;
+  @override
+  Option<Either<EventsFailure, Map<String, List>>> get failureOrReportsOption;
   @override
   @JsonKey(ignore: true)
   _$$_EventReportsStateCopyWith<_$_EventReportsState> get copyWith =>

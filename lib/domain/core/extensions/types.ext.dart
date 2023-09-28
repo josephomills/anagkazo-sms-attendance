@@ -56,7 +56,7 @@ extension EventCategoryExt on EventCategory {
 }
 
 extension EventReportTypeExt on EventReportType {
-  String get name {
+  String get fullname {
     switch (this) {
       case EventReportType.absent:
         return "Absentees Report";

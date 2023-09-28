@@ -8,6 +8,8 @@ class EventReportsState with _$EventReportsState {
     required String? yearGroup,
     required Option<Either<AppFailure, List<YearGroupObject>>>
         failureOrYearGroupListOption,
+    required Option<Either<EventsFailure, Map<String, List>>>
+        failureOrReportsOption,
   }) = _EventReportsState;
 
   factory EventReportsState.initial() => EventReportsState(
@@ -16,5 +18,6 @@ class EventReportsState with _$EventReportsState {
         yearGroup: "all",
         failureOrYearGroupListOption:
             getIt<AppBloc>().state.failureOrYearGroupListOption,
+        failureOrReportsOption: none(),
       );
 }

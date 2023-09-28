@@ -50,15 +50,22 @@ class AnagkazoSMSAttendanceManager extends StatelessWidget {
           darkTheme: AppTheme.dark,
           routerDelegate: _appRouter.delegate(),
           routeInformationParser: _appRouter.defaultRouteParser(),
-          builder: (context, widget) => Stack(
-            children: [
-              ResponsiveWrapper.builder(
-                BouncingScrollWrapper.builder(context, widget!),
-                defaultScale: true,
-              ),
-              if (state.isLoading) const LoaderWidget(),
-            ],
-          ),
+          builder: (context, widget) {
+            // register BuildContext
+            if (!getIt.isRegistered<BuildContext>()) {
+              getIt.registerSingleton<BuildContext>(context);
+            }
+
+            return Stack(
+              children: [
+                ResponsiveWrapper.builder(
+                  BouncingScrollWrapper.builder(context, widget!),
+                  defaultScale: true,
+                ),
+                if (state.isLoading) const LoaderWidget(),
+              ],
+            );
+          },
           locale: const Locale('en'),
         );
       },

@@ -58,11 +58,11 @@ class EventsRepo implements EventsFacade {
   }
 
   @override
-  Future<Either<EventsFailure, List<ScanObject>>> getAllScansForEvent({
+  Future<Either<EventsFailure, Map<String, List>>> getReportForEvent({
     required EventObject event,
     YearGroupObject? yearGroup,
-    bool isLate = false,
-    bool isAbsent = false,
+    bool? isLate,
+    bool? isAbsent,
     bool isStudent = true,
   }) async {
     // Get all users
@@ -96,34 +96,83 @@ class EventsRepo implements EventsFacade {
 
     final resp = await usersQuery.query();
     if (resp.success && resp.results != null) {
-      final allUsers = resp.results!.map((user) => user as ParseUser).toList();
+      final allUsers = resp.results!.cast<ParseUser>();
 
       // Get all scans,
       var scanQuery = QueryBuilder(ScanObject())
         ..whereEqualTo(ScanObject.kEvent, event.toPointer())
-        ..whereContainedIn(ScanObject.kUser, allUsers)
+        // ..whereContainedIn(ScanObject.kUser, allUsers)
         ..includeObject([ScanObject.kUser]);
 
       final scanResp = await scanQuery.query();
       if (scanResp.success) {
+        if (scanResp.results == null) {
+          return const Left(EventsFailure.serverError());
+        }
         // all valid scan objects
-        final allScans =
-            scanResp.results!.map((scan) => scan as ScanObject).toList();
+        final allScans = scanResp.results!.cast<ScanObject>();
+
+        var validScans = <ScanObject>[];
+        for (ScanObject scan in allScans) {
+          if (allUsers.any((user) => user.objectId! == scan.user!.objectId)) {
+            validScans.add(scan);
+          }
+        }
 
         // Get users who scanned
-        List<ParseUser> usersWhoScanned = [];
+        List<ParseUser> usersWhoScanned =
+            validScans.map((scan) => scan.user!).toList();
+        List<ParseUser> usersWhoScannedLate = [];
 
-        for (ScanObject scan in allScans) {
-          usersWhoScanned.add(scan.user!);
+        var reportResults = <String, List>{};
+
+        // Absent (users)
+        if (isAbsent != null && isAbsent) {
+          final absentUsers =
+              allUsers.toSet().difference(usersWhoScanned.toSet()).toList();
+          reportResults["absent"] = absentUsers;
         }
-        var resultScans = <ScanObject>[];
-        if (isAbsent) {
-          return Right(
-              allScans.toSet().difference(usersWhoScanned.toSet()).toList());
+
+        // validScans.map((scan) {
+        //   if (scan.scannedInAt!.isAfter(event.startsAt!.add(
+        //     Duration(minutes: event.latenessRule!),
+        //   ))) {
+        //     return scan;
+        //   }
+        // }).toList();
+
+        // Late (scans)
+        List<ScanObject> lateScans = [];
+        if (isLate != null && isLate) {
+          for (ScanObject scan in validScans) {
+            if (scan.scannedInAt!.isAfter(event.startsAt!.add(
+              Duration(minutes: event.latenessRule!),
+            ))) {
+              lateScans.add(scan);
+            }
+          }
+          reportResults["late"] = lateScans;
         }
+
+        // Punctual (scans)
+        final punctualScans =
+            validScans.toSet().difference(lateScans.toSet()).toList();
+        reportResults["punctual"] = punctualScans;
+
+        // print("reportResults: $reportResults");
+
+        return Right(reportResults);
+      } else {
+        return Left(
+          EventsFailure.serverError(
+              message: scanResp.error?.message ?? "Server error"),
+        );
       }
+    } else {
+      return Left(
+        EventsFailure.serverError(
+            message: resp.error?.message ?? "Server error"),
+      );
     }
-
-    return const Left(EventsFailure.serverError());
   }
 }

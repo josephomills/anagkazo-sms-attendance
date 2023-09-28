@@ -14,6 +14,8 @@ class AuthRepo implements AuthFacade {
   Future<Either<AuthFailure, ParseUser>> getCurrentUser() async {
     // Get current user from storage
     final user = await ParseUser.currentUser() as ParseUser?;
+    
+
     if (user != null) {
       return Right(user);
     } else {

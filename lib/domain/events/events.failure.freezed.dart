@@ -89,22 +89,22 @@ class _$EventsFailureCopyWithImpl<$Res, $Val extends EventsFailure>
 }
 
 /// @nodoc
-abstract class _$$_ServerErorCopyWith<$Res>
+abstract class _$$ServerErorImplCopyWith<$Res>
     implements $EventsFailureCopyWith<$Res> {
-  factory _$$_ServerErorCopyWith(
-          _$_ServerEror value, $Res Function(_$_ServerEror) then) =
-      __$$_ServerErorCopyWithImpl<$Res>;
+  factory _$$ServerErorImplCopyWith(
+          _$ServerErorImpl value, $Res Function(_$ServerErorImpl) then) =
+      __$$ServerErorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_ServerErorCopyWithImpl<$Res>
-    extends _$EventsFailureCopyWithImpl<$Res, _$_ServerEror>
-    implements _$$_ServerErorCopyWith<$Res> {
-  __$$_ServerErorCopyWithImpl(
-      _$_ServerEror _value, $Res Function(_$_ServerEror) _then)
+class __$$ServerErorImplCopyWithImpl<$Res>
+    extends _$EventsFailureCopyWithImpl<$Res, _$ServerErorImpl>
+    implements _$$ServerErorImplCopyWith<$Res> {
+  __$$ServerErorImplCopyWithImpl(
+      _$ServerErorImpl _value, $Res Function(_$ServerErorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_ServerErorCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_ServerEror(
+    return _then(_$ServerErorImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class __$$_ServerErorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ServerEror implements _ServerEror {
-  const _$_ServerEror({this.message});
+class _$ServerErorImpl implements _ServerEror {
+  const _$ServerErorImpl({this.message});
 
   @override
   final String? message;
@@ -138,7 +138,7 @@ class _$_ServerEror implements _ServerEror {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerEror &&
+            other is _$ServerErorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -148,8 +148,8 @@ class _$_ServerEror implements _ServerEror {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerErorCopyWith<_$_ServerEror> get copyWith =>
-      __$$_ServerErorCopyWithImpl<_$_ServerEror>(this, _$identity);
+  _$$ServerErorImplCopyWith<_$ServerErorImpl> get copyWith =>
+      __$$ServerErorImplCopyWithImpl<_$ServerErorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,12 +209,12 @@ class _$_ServerEror implements _ServerEror {
 }
 
 abstract class _ServerEror implements EventsFailure {
-  const factory _ServerEror({final String? message}) = _$_ServerEror;
+  const factory _ServerEror({final String? message}) = _$ServerErorImpl;
 
   @override
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerErorCopyWith<_$_ServerEror> get copyWith =>
+  _$$ServerErorImplCopyWith<_$ServerErorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,8 +1,7 @@
 import 'package:attendance/application/app/app_bloc.dart';
 import 'package:attendance/domain/core/config/injectable.core.dart';
 import 'package:attendance/infrastructure/services/parse.service.dart';
-import 'package:attendance/presentation/navigation/auth_gard.core.dart';
-import 'package:attendance/presentation/navigation/autoroute.gr.dart';
+import 'package:attendance/presentation/navigation/autoroute.dart';
 import 'package:attendance/presentation/theme/app_theme.dart';
 import 'package:attendance/presentation/widgets/loader.widget.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ Future<void> main() async {
 class AnagkazoSMSAttendanceManager extends StatelessWidget {
   AnagkazoSMSAttendanceManager({super.key});
 
-  final _appRouter = AppRouter(authGuard: AuthGuard());
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {

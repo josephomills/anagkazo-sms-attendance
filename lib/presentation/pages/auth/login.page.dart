@@ -1,14 +1,15 @@
-import 'package:attendance/domain/core/util/validator.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:attendance/application/auth/login/login_bloc.dart';
 import 'package:attendance/domain/core/config/injectable.core.dart';
 import 'package:attendance/domain/core/util/util.dart';
+import 'package:attendance/domain/core/util/validator.dart';
 import 'package:attendance/presentation/navigation/autoroute.gr.dart';
 import 'package:attendance/presentation/widgets/button.widget.dart';
 import 'package:attendance/presentation/widgets/forms/text_form_field.widget.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+@RoutePage()
 class LoginPage extends StatelessWidget implements AutoRouteWrapper {
   LoginPage({Key? key}) : super(key: key);
 

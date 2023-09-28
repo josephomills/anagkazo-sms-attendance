@@ -15,7 +15,6 @@ import 'package:attendance/presentation/widgets/forms/text_form_field.widget.dar
 import 'package:attendance/presentation/widgets/loader.widget.dart';
 import 'package:attendance/presentation/widgets/qr_code_footer_painter.widget.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:custom_qr_generator/custom_qr_generator.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,8 +23,8 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:zxing_lib/qrcode.dart';
 
+@RoutePage()
 class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
   EventDetailsPage({Key? key, required this.event}) : super(key: key);
 

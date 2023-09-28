@@ -82,20 +82,21 @@ class _$EventReportsEventCopyWithImpl<$Res, $Val extends EventReportsEvent>
 }
 
 /// @nodoc
-abstract class _$$_GenerateButtonPressedCopyWith<$Res> {
-  factory _$$_GenerateButtonPressedCopyWith(_$_GenerateButtonPressed value,
-          $Res Function(_$_GenerateButtonPressed) then) =
-      __$$_GenerateButtonPressedCopyWithImpl<$Res>;
+abstract class _$$GenerateButtonPressedImplCopyWith<$Res> {
+  factory _$$GenerateButtonPressedImplCopyWith(
+          _$GenerateButtonPressedImpl value,
+          $Res Function(_$GenerateButtonPressedImpl) then) =
+      __$$GenerateButtonPressedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EventObject event});
 }
 
 /// @nodoc
-class __$$_GenerateButtonPressedCopyWithImpl<$Res>
-    extends _$EventReportsEventCopyWithImpl<$Res, _$_GenerateButtonPressed>
-    implements _$$_GenerateButtonPressedCopyWith<$Res> {
-  __$$_GenerateButtonPressedCopyWithImpl(_$_GenerateButtonPressed _value,
-      $Res Function(_$_GenerateButtonPressed) _then)
+class __$$GenerateButtonPressedImplCopyWithImpl<$Res>
+    extends _$EventReportsEventCopyWithImpl<$Res, _$GenerateButtonPressedImpl>
+    implements _$$GenerateButtonPressedImplCopyWith<$Res> {
+  __$$GenerateButtonPressedImplCopyWithImpl(_$GenerateButtonPressedImpl _value,
+      $Res Function(_$GenerateButtonPressedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +104,7 @@ class __$$_GenerateButtonPressedCopyWithImpl<$Res>
   $Res call({
     Object? event = null,
   }) {
-    return _then(_$_GenerateButtonPressed(
+    return _then(_$GenerateButtonPressedImpl(
       event: null == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -114,8 +115,8 @@ class __$$_GenerateButtonPressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GenerateButtonPressed implements _GenerateButtonPressed {
-  const _$_GenerateButtonPressed({required this.event});
+class _$GenerateButtonPressedImpl implements _GenerateButtonPressed {
+  const _$GenerateButtonPressedImpl({required this.event});
 
   @override
   final EventObject event;
@@ -129,7 +130,7 @@ class _$_GenerateButtonPressed implements _GenerateButtonPressed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GenerateButtonPressed &&
+            other is _$GenerateButtonPressedImpl &&
             (identical(other.event, event) || other.event == event));
   }
 
@@ -139,9 +140,9 @@ class _$_GenerateButtonPressed implements _GenerateButtonPressed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GenerateButtonPressedCopyWith<_$_GenerateButtonPressed> get copyWith =>
-      __$$_GenerateButtonPressedCopyWithImpl<_$_GenerateButtonPressed>(
-          this, _$identity);
+  _$$GenerateButtonPressedImplCopyWith<_$GenerateButtonPressedImpl>
+      get copyWith => __$$GenerateButtonPressedImplCopyWithImpl<
+          _$GenerateButtonPressedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -215,29 +216,29 @@ class _$_GenerateButtonPressed implements _GenerateButtonPressed {
 
 abstract class _GenerateButtonPressed implements EventReportsEvent {
   const factory _GenerateButtonPressed({required final EventObject event}) =
-      _$_GenerateButtonPressed;
+      _$GenerateButtonPressedImpl;
 
   EventObject get event;
   @JsonKey(ignore: true)
-  _$$_GenerateButtonPressedCopyWith<_$_GenerateButtonPressed> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GenerateButtonPressedImplCopyWith<_$GenerateButtonPressedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_YearGroupChangedCopyWith<$Res> {
-  factory _$$_YearGroupChangedCopyWith(
-          _$_YearGroupChanged value, $Res Function(_$_YearGroupChanged) then) =
-      __$$_YearGroupChangedCopyWithImpl<$Res>;
+abstract class _$$YearGroupChangedImplCopyWith<$Res> {
+  factory _$$YearGroupChangedImplCopyWith(_$YearGroupChangedImpl value,
+          $Res Function(_$YearGroupChangedImpl) then) =
+      __$$YearGroupChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? yearGroup});
 }
 
 /// @nodoc
-class __$$_YearGroupChangedCopyWithImpl<$Res>
-    extends _$EventReportsEventCopyWithImpl<$Res, _$_YearGroupChanged>
-    implements _$$_YearGroupChangedCopyWith<$Res> {
-  __$$_YearGroupChangedCopyWithImpl(
-      _$_YearGroupChanged _value, $Res Function(_$_YearGroupChanged) _then)
+class __$$YearGroupChangedImplCopyWithImpl<$Res>
+    extends _$EventReportsEventCopyWithImpl<$Res, _$YearGroupChangedImpl>
+    implements _$$YearGroupChangedImplCopyWith<$Res> {
+  __$$YearGroupChangedImplCopyWithImpl(_$YearGroupChangedImpl _value,
+      $Res Function(_$YearGroupChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -245,7 +246,7 @@ class __$$_YearGroupChangedCopyWithImpl<$Res>
   $Res call({
     Object? yearGroup = freezed,
   }) {
-    return _then(_$_YearGroupChanged(
+    return _then(_$YearGroupChangedImpl(
       yearGroup: freezed == yearGroup
           ? _value.yearGroup
           : yearGroup // ignore: cast_nullable_to_non_nullable
@@ -256,8 +257,8 @@ class __$$_YearGroupChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_YearGroupChanged implements _YearGroupChanged {
-  const _$_YearGroupChanged({required this.yearGroup});
+class _$YearGroupChangedImpl implements _YearGroupChanged {
+  const _$YearGroupChangedImpl({required this.yearGroup});
 
   @override
   final String? yearGroup;
@@ -271,7 +272,7 @@ class _$_YearGroupChanged implements _YearGroupChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_YearGroupChanged &&
+            other is _$YearGroupChangedImpl &&
             (identical(other.yearGroup, yearGroup) ||
                 other.yearGroup == yearGroup));
   }
@@ -282,8 +283,9 @@ class _$_YearGroupChanged implements _YearGroupChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_YearGroupChangedCopyWith<_$_YearGroupChanged> get copyWith =>
-      __$$_YearGroupChangedCopyWithImpl<_$_YearGroupChanged>(this, _$identity);
+  _$$YearGroupChangedImplCopyWith<_$YearGroupChangedImpl> get copyWith =>
+      __$$YearGroupChangedImplCopyWithImpl<_$YearGroupChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -357,29 +359,29 @@ class _$_YearGroupChanged implements _YearGroupChanged {
 
 abstract class _YearGroupChanged implements EventReportsEvent {
   const factory _YearGroupChanged({required final String? yearGroup}) =
-      _$_YearGroupChanged;
+      _$YearGroupChangedImpl;
 
   String? get yearGroup;
   @JsonKey(ignore: true)
-  _$$_YearGroupChangedCopyWith<_$_YearGroupChanged> get copyWith =>
+  _$$YearGroupChangedImplCopyWith<_$YearGroupChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ReportTypeChangedCopyWith<$Res> {
-  factory _$$_ReportTypeChangedCopyWith(_$_ReportTypeChanged value,
-          $Res Function(_$_ReportTypeChanged) then) =
-      __$$_ReportTypeChangedCopyWithImpl<$Res>;
+abstract class _$$ReportTypeChangedImplCopyWith<$Res> {
+  factory _$$ReportTypeChangedImplCopyWith(_$ReportTypeChangedImpl value,
+          $Res Function(_$ReportTypeChangedImpl) then) =
+      __$$ReportTypeChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? value});
 }
 
 /// @nodoc
-class __$$_ReportTypeChangedCopyWithImpl<$Res>
-    extends _$EventReportsEventCopyWithImpl<$Res, _$_ReportTypeChanged>
-    implements _$$_ReportTypeChangedCopyWith<$Res> {
-  __$$_ReportTypeChangedCopyWithImpl(
-      _$_ReportTypeChanged _value, $Res Function(_$_ReportTypeChanged) _then)
+class __$$ReportTypeChangedImplCopyWithImpl<$Res>
+    extends _$EventReportsEventCopyWithImpl<$Res, _$ReportTypeChangedImpl>
+    implements _$$ReportTypeChangedImplCopyWith<$Res> {
+  __$$ReportTypeChangedImplCopyWithImpl(_$ReportTypeChangedImpl _value,
+      $Res Function(_$ReportTypeChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -387,7 +389,7 @@ class __$$_ReportTypeChangedCopyWithImpl<$Res>
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_$_ReportTypeChanged(
+    return _then(_$ReportTypeChangedImpl(
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -398,8 +400,8 @@ class __$$_ReportTypeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReportTypeChanged implements _ReportTypeChanged {
-  const _$_ReportTypeChanged({required this.value});
+class _$ReportTypeChangedImpl implements _ReportTypeChanged {
+  const _$ReportTypeChangedImpl({required this.value});
 
   @override
   final String? value;
@@ -413,7 +415,7 @@ class _$_ReportTypeChanged implements _ReportTypeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ReportTypeChanged &&
+            other is _$ReportTypeChangedImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -423,8 +425,8 @@ class _$_ReportTypeChanged implements _ReportTypeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReportTypeChangedCopyWith<_$_ReportTypeChanged> get copyWith =>
-      __$$_ReportTypeChangedCopyWithImpl<_$_ReportTypeChanged>(
+  _$$ReportTypeChangedImplCopyWith<_$ReportTypeChangedImpl> get copyWith =>
+      __$$ReportTypeChangedImplCopyWithImpl<_$ReportTypeChangedImpl>(
           this, _$identity);
 
   @override
@@ -499,11 +501,11 @@ class _$_ReportTypeChanged implements _ReportTypeChanged {
 
 abstract class _ReportTypeChanged implements EventReportsEvent {
   const factory _ReportTypeChanged({required final String? value}) =
-      _$_ReportTypeChanged;
+      _$ReportTypeChangedImpl;
 
   String? get value;
   @JsonKey(ignore: true)
-  _$$_ReportTypeChangedCopyWith<_$_ReportTypeChanged> get copyWith =>
+  _$$ReportTypeChangedImplCopyWith<_$ReportTypeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -574,11 +576,11 @@ class _$EventReportsStateCopyWithImpl<$Res, $Val extends EventReportsState>
 }
 
 /// @nodoc
-abstract class _$$_EventReportsStateCopyWith<$Res>
+abstract class _$$EventReportsStateImplCopyWith<$Res>
     implements $EventReportsStateCopyWith<$Res> {
-  factory _$$_EventReportsStateCopyWith(_$_EventReportsState value,
-          $Res Function(_$_EventReportsState) then) =
-      __$$_EventReportsStateCopyWithImpl<$Res>;
+  factory _$$EventReportsStateImplCopyWith(_$EventReportsStateImpl value,
+          $Res Function(_$EventReportsStateImpl) then) =
+      __$$EventReportsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -590,11 +592,11 @@ abstract class _$$_EventReportsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EventReportsStateCopyWithImpl<$Res>
-    extends _$EventReportsStateCopyWithImpl<$Res, _$_EventReportsState>
-    implements _$$_EventReportsStateCopyWith<$Res> {
-  __$$_EventReportsStateCopyWithImpl(
-      _$_EventReportsState _value, $Res Function(_$_EventReportsState) _then)
+class __$$EventReportsStateImplCopyWithImpl<$Res>
+    extends _$EventReportsStateCopyWithImpl<$Res, _$EventReportsStateImpl>
+    implements _$$EventReportsStateImplCopyWith<$Res> {
+  __$$EventReportsStateImplCopyWithImpl(_$EventReportsStateImpl _value,
+      $Res Function(_$EventReportsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -605,7 +607,7 @@ class __$$_EventReportsStateCopyWithImpl<$Res>
     Object? yearGroup = freezed,
     Object? failureOrYearGroupListOption = null,
   }) {
-    return _then(_$_EventReportsState(
+    return _then(_$EventReportsStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -628,8 +630,8 @@ class __$$_EventReportsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EventReportsState implements _EventReportsState {
-  const _$_EventReportsState(
+class _$EventReportsStateImpl implements _EventReportsState {
+  const _$EventReportsStateImpl(
       {required this.isLoading,
       required this.reportType,
       required this.yearGroup,
@@ -654,7 +656,7 @@ class _$_EventReportsState implements _EventReportsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EventReportsState &&
+            other is _$EventReportsStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.reportType, reportType) ||
@@ -674,8 +676,8 @@ class _$_EventReportsState implements _EventReportsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EventReportsStateCopyWith<_$_EventReportsState> get copyWith =>
-      __$$_EventReportsStateCopyWithImpl<_$_EventReportsState>(
+  _$$EventReportsStateImplCopyWith<_$EventReportsStateImpl> get copyWith =>
+      __$$EventReportsStateImplCopyWithImpl<_$EventReportsStateImpl>(
           this, _$identity);
 }
 
@@ -685,7 +687,7 @@ abstract class _EventReportsState implements EventReportsState {
       required final String? reportType,
       required final String? yearGroup,
       required final Option<Either<AppFailure, List<YearGroupObject>>>
-          failureOrYearGroupListOption}) = _$_EventReportsState;
+          failureOrYearGroupListOption}) = _$EventReportsStateImpl;
 
   @override
   bool get isLoading;
@@ -698,6 +700,6 @@ abstract class _EventReportsState implements EventReportsState {
       get failureOrYearGroupListOption;
   @override
   @JsonKey(ignore: true)
-  _$$_EventReportsStateCopyWith<_$_EventReportsState> get copyWith =>
+  _$$EventReportsStateImplCopyWith<_$EventReportsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

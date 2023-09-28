@@ -75,20 +75,20 @@ class _$AppFailureCopyWithImpl<$Res, $Val extends AppFailure>
 }
 
 /// @nodoc
-abstract class _$$_ServerErrorCopyWith<$Res> {
-  factory _$$_ServerErrorCopyWith(
-          _$_ServerError value, $Res Function(_$_ServerError) then) =
-      __$$_ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<$Res> {
+  factory _$$ServerErrorImplCopyWith(
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$AppFailureCopyWithImpl<$Res, _$_ServerError>
-    implements _$$_ServerErrorCopyWith<$Res> {
-  __$$_ServerErrorCopyWithImpl(
-      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+class __$$ServerErrorImplCopyWithImpl<$Res>
+    extends _$AppFailureCopyWithImpl<$Res, _$ServerErrorImpl>
+    implements _$$ServerErrorImplCopyWith<$Res> {
+  __$$ServerErrorImplCopyWithImpl(
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +96,7 @@ class __$$_ServerErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_ServerError(
+    return _then(_$ServerErrorImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -107,8 +107,8 @@ class __$$_ServerErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ServerError implements _ServerError {
-  const _$_ServerError({this.message});
+class _$ServerErrorImpl implements _ServerError {
+  const _$ServerErrorImpl({this.message});
 
   @override
   final String? message;
@@ -122,7 +122,7 @@ class _$_ServerError implements _ServerError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerError &&
+            other is _$ServerErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -132,8 +132,8 @@ class _$_ServerError implements _ServerError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
-      __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
+  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
+      __$$ServerErrorImplCopyWithImpl<_$ServerErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -199,34 +199,34 @@ class _$_ServerError implements _ServerError {
 }
 
 abstract class _ServerError implements AppFailure {
-  const factory _ServerError({final String? message}) = _$_ServerError;
+  const factory _ServerError({final String? message}) = _$ServerErrorImpl;
 
   String? get message;
   @JsonKey(ignore: true)
-  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
+  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_NoInternetCopyWith<$Res> {
-  factory _$$_NoInternetCopyWith(
-          _$_NoInternet value, $Res Function(_$_NoInternet) then) =
-      __$$_NoInternetCopyWithImpl<$Res>;
+abstract class _$$NoInternetImplCopyWith<$Res> {
+  factory _$$NoInternetImplCopyWith(
+          _$NoInternetImpl value, $Res Function(_$NoInternetImpl) then) =
+      __$$NoInternetImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NoInternetCopyWithImpl<$Res>
-    extends _$AppFailureCopyWithImpl<$Res, _$_NoInternet>
-    implements _$$_NoInternetCopyWith<$Res> {
-  __$$_NoInternetCopyWithImpl(
-      _$_NoInternet _value, $Res Function(_$_NoInternet) _then)
+class __$$NoInternetImplCopyWithImpl<$Res>
+    extends _$AppFailureCopyWithImpl<$Res, _$NoInternetImpl>
+    implements _$$NoInternetImplCopyWith<$Res> {
+  __$$NoInternetImplCopyWithImpl(
+      _$NoInternetImpl _value, $Res Function(_$NoInternetImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_NoInternet implements _NoInternet {
-  const _$_NoInternet();
+class _$NoInternetImpl implements _NoInternet {
+  const _$NoInternetImpl();
 
   @override
   String toString() {
@@ -236,7 +236,7 @@ class _$_NoInternet implements _NoInternet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_NoInternet);
+        (other.runtimeType == runtimeType && other is _$NoInternetImpl);
   }
 
   @override
@@ -306,5 +306,5 @@ class _$_NoInternet implements _NoInternet {
 }
 
 abstract class _NoInternet implements AppFailure {
-  const factory _NoInternet() = _$_NoInternet;
+  const factory _NoInternet() = _$NoInternetImpl;
 }

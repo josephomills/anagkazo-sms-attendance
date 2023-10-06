@@ -74,22 +74,22 @@ class _$RegisterDTOCopyWithImpl<$Res, $Val extends RegisterDTO>
 }
 
 /// @nodoc
-abstract class _$$_RegisterDTOCopyWith<$Res>
+abstract class _$$RegisterDTOImplCopyWith<$Res>
     implements $RegisterDTOCopyWith<$Res> {
-  factory _$$_RegisterDTOCopyWith(
-          _$_RegisterDTO value, $Res Function(_$_RegisterDTO) then) =
-      __$$_RegisterDTOCopyWithImpl<$Res>;
+  factory _$$RegisterDTOImplCopyWith(
+          _$RegisterDTOImpl value, $Res Function(_$RegisterDTOImpl) then) =
+      __$$RegisterDTOImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String username, String password, String? email});
 }
 
 /// @nodoc
-class __$$_RegisterDTOCopyWithImpl<$Res>
-    extends _$RegisterDTOCopyWithImpl<$Res, _$_RegisterDTO>
-    implements _$$_RegisterDTOCopyWith<$Res> {
-  __$$_RegisterDTOCopyWithImpl(
-      _$_RegisterDTO _value, $Res Function(_$_RegisterDTO) _then)
+class __$$RegisterDTOImplCopyWithImpl<$Res>
+    extends _$RegisterDTOCopyWithImpl<$Res, _$RegisterDTOImpl>
+    implements _$$RegisterDTOImplCopyWith<$Res> {
+  __$$RegisterDTOImplCopyWithImpl(
+      _$RegisterDTOImpl _value, $Res Function(_$RegisterDTOImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_RegisterDTOCopyWithImpl<$Res>
     Object? password = null,
     Object? email = freezed,
   }) {
-    return _then(_$_RegisterDTO(
+    return _then(_$RegisterDTOImpl(
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -118,12 +118,12 @@ class __$$_RegisterDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RegisterDTO implements _RegisterDTO {
-  const _$_RegisterDTO(
+class _$RegisterDTOImpl implements _RegisterDTO {
+  const _$RegisterDTOImpl(
       {required this.username, required this.password, this.email});
 
-  factory _$_RegisterDTO.fromJson(Map<String, dynamic> json) =>
-      _$$_RegisterDTOFromJson(json);
+  factory _$RegisterDTOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RegisterDTOImplFromJson(json);
 
   @override
   final String username;
@@ -141,7 +141,7 @@ class _$_RegisterDTO implements _RegisterDTO {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RegisterDTO &&
+            other is _$RegisterDTOImpl &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
@@ -156,12 +156,12 @@ class _$_RegisterDTO implements _RegisterDTO {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RegisterDTOCopyWith<_$_RegisterDTO> get copyWith =>
-      __$$_RegisterDTOCopyWithImpl<_$_RegisterDTO>(this, _$identity);
+  _$$RegisterDTOImplCopyWith<_$RegisterDTOImpl> get copyWith =>
+      __$$RegisterDTOImplCopyWithImpl<_$RegisterDTOImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RegisterDTOToJson(
+    return _$$RegisterDTOImplToJson(
       this,
     );
   }
@@ -171,10 +171,10 @@ abstract class _RegisterDTO implements RegisterDTO {
   const factory _RegisterDTO(
       {required final String username,
       required final String password,
-      final String? email}) = _$_RegisterDTO;
+      final String? email}) = _$RegisterDTOImpl;
 
   factory _RegisterDTO.fromJson(Map<String, dynamic> json) =
-      _$_RegisterDTO.fromJson;
+      _$RegisterDTOImpl.fromJson;
 
   @override
   String get username;
@@ -184,6 +184,6 @@ abstract class _RegisterDTO implements RegisterDTO {
   String? get email;
   @override
   @JsonKey(ignore: true)
-  _$$_RegisterDTOCopyWith<_$_RegisterDTO> get copyWith =>
+  _$$RegisterDTOImplCopyWith<_$RegisterDTOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

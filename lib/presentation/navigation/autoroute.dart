@@ -1,5 +1,5 @@
-import 'package:attendance/presentation/navigation/autoroute.gr.dart';
 import 'package:attendance/presentation/navigation/auth_gard.core.dart';
+import 'package:attendance/presentation/navigation/autoroute.gr.dart';
 import 'package:auto_route/auto_route.dart';
 
 @AutoRouterConfig()

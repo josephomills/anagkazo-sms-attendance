@@ -99,20 +99,20 @@ class _$AddEventEventCopyWithImpl<$Res, $Val extends AddEventEvent>
 }
 
 /// @nodoc
-abstract class _$$_NameChangedCopyWith<$Res> {
-  factory _$$_NameChangedCopyWith(
-          _$_NameChanged value, $Res Function(_$_NameChanged) then) =
-      __$$_NameChangedCopyWithImpl<$Res>;
+abstract class _$$NameChangedImplCopyWith<$Res> {
+  factory _$$NameChangedImplCopyWith(
+          _$NameChangedImpl value, $Res Function(_$NameChangedImpl) then) =
+      __$$NameChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String eventName});
 }
 
 /// @nodoc
-class __$$_NameChangedCopyWithImpl<$Res>
-    extends _$AddEventEventCopyWithImpl<$Res, _$_NameChanged>
-    implements _$$_NameChangedCopyWith<$Res> {
-  __$$_NameChangedCopyWithImpl(
-      _$_NameChanged _value, $Res Function(_$_NameChanged) _then)
+class __$$NameChangedImplCopyWithImpl<$Res>
+    extends _$AddEventEventCopyWithImpl<$Res, _$NameChangedImpl>
+    implements _$$NameChangedImplCopyWith<$Res> {
+  __$$NameChangedImplCopyWithImpl(
+      _$NameChangedImpl _value, $Res Function(_$NameChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$_NameChangedCopyWithImpl<$Res>
   $Res call({
     Object? eventName = null,
   }) {
-    return _then(_$_NameChanged(
+    return _then(_$NameChangedImpl(
       eventName: null == eventName
           ? _value.eventName
           : eventName // ignore: cast_nullable_to_non_nullable
@@ -131,8 +131,8 @@ class __$$_NameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NameChanged implements _NameChanged {
-  const _$_NameChanged({required this.eventName});
+class _$NameChangedImpl implements _NameChanged {
+  const _$NameChangedImpl({required this.eventName});
 
   @override
   final String eventName;
@@ -146,7 +146,7 @@ class _$_NameChanged implements _NameChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NameChanged &&
+            other is _$NameChangedImpl &&
             (identical(other.eventName, eventName) ||
                 other.eventName == eventName));
   }
@@ -157,8 +157,8 @@ class _$_NameChanged implements _NameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
-      __$$_NameChangedCopyWithImpl<_$_NameChanged>(this, _$identity);
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
+      __$$NameChangedImplCopyWithImpl<_$NameChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -249,29 +249,29 @@ class _$_NameChanged implements _NameChanged {
 
 abstract class _NameChanged implements AddEventEvent {
   const factory _NameChanged({required final String eventName}) =
-      _$_NameChanged;
+      _$NameChangedImpl;
 
   String get eventName;
   @JsonKey(ignore: true)
-  _$$_NameChangedCopyWith<_$_NameChanged> get copyWith =>
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_EventTypeChangedCopyWith<$Res> {
-  factory _$$_EventTypeChangedCopyWith(
-          _$_EventTypeChanged value, $Res Function(_$_EventTypeChanged) then) =
-      __$$_EventTypeChangedCopyWithImpl<$Res>;
+abstract class _$$EventTypeChangedImplCopyWith<$Res> {
+  factory _$$EventTypeChangedImplCopyWith(_$EventTypeChangedImpl value,
+          $Res Function(_$EventTypeChangedImpl) then) =
+      __$$EventTypeChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EventTypeObject eventType});
 }
 
 /// @nodoc
-class __$$_EventTypeChangedCopyWithImpl<$Res>
-    extends _$AddEventEventCopyWithImpl<$Res, _$_EventTypeChanged>
-    implements _$$_EventTypeChangedCopyWith<$Res> {
-  __$$_EventTypeChangedCopyWithImpl(
-      _$_EventTypeChanged _value, $Res Function(_$_EventTypeChanged) _then)
+class __$$EventTypeChangedImplCopyWithImpl<$Res>
+    extends _$AddEventEventCopyWithImpl<$Res, _$EventTypeChangedImpl>
+    implements _$$EventTypeChangedImplCopyWith<$Res> {
+  __$$EventTypeChangedImplCopyWithImpl(_$EventTypeChangedImpl _value,
+      $Res Function(_$EventTypeChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -279,7 +279,7 @@ class __$$_EventTypeChangedCopyWithImpl<$Res>
   $Res call({
     Object? eventType = null,
   }) {
-    return _then(_$_EventTypeChanged(
+    return _then(_$EventTypeChangedImpl(
       eventType: null == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
@@ -290,8 +290,8 @@ class __$$_EventTypeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EventTypeChanged implements _EventTypeChanged {
-  const _$_EventTypeChanged({required this.eventType});
+class _$EventTypeChangedImpl implements _EventTypeChanged {
+  const _$EventTypeChangedImpl({required this.eventType});
 
   @override
   final EventTypeObject eventType;
@@ -305,7 +305,7 @@ class _$_EventTypeChanged implements _EventTypeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EventTypeChanged &&
+            other is _$EventTypeChangedImpl &&
             (identical(other.eventType, eventType) ||
                 other.eventType == eventType));
   }
@@ -316,8 +316,9 @@ class _$_EventTypeChanged implements _EventTypeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EventTypeChangedCopyWith<_$_EventTypeChanged> get copyWith =>
-      __$$_EventTypeChangedCopyWithImpl<_$_EventTypeChanged>(this, _$identity);
+  _$$EventTypeChangedImplCopyWith<_$EventTypeChangedImpl> get copyWith =>
+      __$$EventTypeChangedImplCopyWithImpl<_$EventTypeChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -408,29 +409,29 @@ class _$_EventTypeChanged implements _EventTypeChanged {
 
 abstract class _EventTypeChanged implements AddEventEvent {
   const factory _EventTypeChanged({required final EventTypeObject eventType}) =
-      _$_EventTypeChanged;
+      _$EventTypeChangedImpl;
 
   EventTypeObject get eventType;
   @JsonKey(ignore: true)
-  _$$_EventTypeChangedCopyWith<_$_EventTypeChanged> get copyWith =>
+  _$$EventTypeChangedImplCopyWith<_$EventTypeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DateChangedCopyWith<$Res> {
-  factory _$$_DateChangedCopyWith(
-          _$_DateChanged value, $Res Function(_$_DateChanged) then) =
-      __$$_DateChangedCopyWithImpl<$Res>;
+abstract class _$$DateChangedImplCopyWith<$Res> {
+  factory _$$DateChangedImplCopyWith(
+          _$DateChangedImpl value, $Res Function(_$DateChangedImpl) then) =
+      __$$DateChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DateTime date});
 }
 
 /// @nodoc
-class __$$_DateChangedCopyWithImpl<$Res>
-    extends _$AddEventEventCopyWithImpl<$Res, _$_DateChanged>
-    implements _$$_DateChangedCopyWith<$Res> {
-  __$$_DateChangedCopyWithImpl(
-      _$_DateChanged _value, $Res Function(_$_DateChanged) _then)
+class __$$DateChangedImplCopyWithImpl<$Res>
+    extends _$AddEventEventCopyWithImpl<$Res, _$DateChangedImpl>
+    implements _$$DateChangedImplCopyWith<$Res> {
+  __$$DateChangedImplCopyWithImpl(
+      _$DateChangedImpl _value, $Res Function(_$DateChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -438,7 +439,7 @@ class __$$_DateChangedCopyWithImpl<$Res>
   $Res call({
     Object? date = null,
   }) {
-    return _then(_$_DateChanged(
+    return _then(_$DateChangedImpl(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -449,8 +450,8 @@ class __$$_DateChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DateChanged implements _DateChanged {
-  const _$_DateChanged({required this.date});
+class _$DateChangedImpl implements _DateChanged {
+  const _$DateChangedImpl({required this.date});
 
   @override
   final DateTime date;
@@ -464,7 +465,7 @@ class _$_DateChanged implements _DateChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DateChanged &&
+            other is _$DateChangedImpl &&
             (identical(other.date, date) || other.date == date));
   }
 
@@ -474,8 +475,8 @@ class _$_DateChanged implements _DateChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DateChangedCopyWith<_$_DateChanged> get copyWith =>
-      __$$_DateChangedCopyWithImpl<_$_DateChanged>(this, _$identity);
+  _$$DateChangedImplCopyWith<_$DateChangedImpl> get copyWith =>
+      __$$DateChangedImplCopyWithImpl<_$DateChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -565,29 +566,30 @@ class _$_DateChanged implements _DateChanged {
 }
 
 abstract class _DateChanged implements AddEventEvent {
-  const factory _DateChanged({required final DateTime date}) = _$_DateChanged;
+  const factory _DateChanged({required final DateTime date}) =
+      _$DateChangedImpl;
 
   DateTime get date;
   @JsonKey(ignore: true)
-  _$$_DateChangedCopyWith<_$_DateChanged> get copyWith =>
+  _$$DateChangedImplCopyWith<_$DateChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TimeChangedCopyWith<$Res> {
-  factory _$$_TimeChangedCopyWith(
-          _$_TimeChanged value, $Res Function(_$_TimeChanged) then) =
-      __$$_TimeChangedCopyWithImpl<$Res>;
+abstract class _$$TimeChangedImplCopyWith<$Res> {
+  factory _$$TimeChangedImplCopyWith(
+          _$TimeChangedImpl value, $Res Function(_$TimeChangedImpl) then) =
+      __$$TimeChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TimeOfDay time});
 }
 
 /// @nodoc
-class __$$_TimeChangedCopyWithImpl<$Res>
-    extends _$AddEventEventCopyWithImpl<$Res, _$_TimeChanged>
-    implements _$$_TimeChangedCopyWith<$Res> {
-  __$$_TimeChangedCopyWithImpl(
-      _$_TimeChanged _value, $Res Function(_$_TimeChanged) _then)
+class __$$TimeChangedImplCopyWithImpl<$Res>
+    extends _$AddEventEventCopyWithImpl<$Res, _$TimeChangedImpl>
+    implements _$$TimeChangedImplCopyWith<$Res> {
+  __$$TimeChangedImplCopyWithImpl(
+      _$TimeChangedImpl _value, $Res Function(_$TimeChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -595,7 +597,7 @@ class __$$_TimeChangedCopyWithImpl<$Res>
   $Res call({
     Object? time = null,
   }) {
-    return _then(_$_TimeChanged(
+    return _then(_$TimeChangedImpl(
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -606,8 +608,8 @@ class __$$_TimeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimeChanged implements _TimeChanged {
-  const _$_TimeChanged({required this.time});
+class _$TimeChangedImpl implements _TimeChanged {
+  const _$TimeChangedImpl({required this.time});
 
   @override
   final TimeOfDay time;
@@ -621,7 +623,7 @@ class _$_TimeChanged implements _TimeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimeChanged &&
+            other is _$TimeChangedImpl &&
             (identical(other.time, time) || other.time == time));
   }
 
@@ -631,8 +633,8 @@ class _$_TimeChanged implements _TimeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeChangedCopyWith<_$_TimeChanged> get copyWith =>
-      __$$_TimeChangedCopyWithImpl<_$_TimeChanged>(this, _$identity);
+  _$$TimeChangedImplCopyWith<_$TimeChangedImpl> get copyWith =>
+      __$$TimeChangedImplCopyWithImpl<_$TimeChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -722,29 +724,30 @@ class _$_TimeChanged implements _TimeChanged {
 }
 
 abstract class _TimeChanged implements AddEventEvent {
-  const factory _TimeChanged({required final TimeOfDay time}) = _$_TimeChanged;
+  const factory _TimeChanged({required final TimeOfDay time}) =
+      _$TimeChangedImpl;
 
   TimeOfDay get time;
   @JsonKey(ignore: true)
-  _$$_TimeChangedCopyWith<_$_TimeChanged> get copyWith =>
+  _$$TimeChangedImplCopyWith<_$TimeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LatenessRuleChangedCopyWith<$Res> {
-  factory _$$_LatenessRuleChangedCopyWith(_$_LatenessRuleChanged value,
-          $Res Function(_$_LatenessRuleChanged) then) =
-      __$$_LatenessRuleChangedCopyWithImpl<$Res>;
+abstract class _$$LatenessRuleChangedImplCopyWith<$Res> {
+  factory _$$LatenessRuleChangedImplCopyWith(_$LatenessRuleChangedImpl value,
+          $Res Function(_$LatenessRuleChangedImpl) then) =
+      __$$LatenessRuleChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String latenessRule});
 }
 
 /// @nodoc
-class __$$_LatenessRuleChangedCopyWithImpl<$Res>
-    extends _$AddEventEventCopyWithImpl<$Res, _$_LatenessRuleChanged>
-    implements _$$_LatenessRuleChangedCopyWith<$Res> {
-  __$$_LatenessRuleChangedCopyWithImpl(_$_LatenessRuleChanged _value,
-      $Res Function(_$_LatenessRuleChanged) _then)
+class __$$LatenessRuleChangedImplCopyWithImpl<$Res>
+    extends _$AddEventEventCopyWithImpl<$Res, _$LatenessRuleChangedImpl>
+    implements _$$LatenessRuleChangedImplCopyWith<$Res> {
+  __$$LatenessRuleChangedImplCopyWithImpl(_$LatenessRuleChangedImpl _value,
+      $Res Function(_$LatenessRuleChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -752,7 +755,7 @@ class __$$_LatenessRuleChangedCopyWithImpl<$Res>
   $Res call({
     Object? latenessRule = null,
   }) {
-    return _then(_$_LatenessRuleChanged(
+    return _then(_$LatenessRuleChangedImpl(
       latenessRule: null == latenessRule
           ? _value.latenessRule
           : latenessRule // ignore: cast_nullable_to_non_nullable
@@ -763,8 +766,8 @@ class __$$_LatenessRuleChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LatenessRuleChanged implements _LatenessRuleChanged {
-  const _$_LatenessRuleChanged({required this.latenessRule});
+class _$LatenessRuleChangedImpl implements _LatenessRuleChanged {
+  const _$LatenessRuleChangedImpl({required this.latenessRule});
 
   @override
   final String latenessRule;
@@ -778,7 +781,7 @@ class _$_LatenessRuleChanged implements _LatenessRuleChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LatenessRuleChanged &&
+            other is _$LatenessRuleChangedImpl &&
             (identical(other.latenessRule, latenessRule) ||
                 other.latenessRule == latenessRule));
   }
@@ -789,8 +792,8 @@ class _$_LatenessRuleChanged implements _LatenessRuleChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LatenessRuleChangedCopyWith<_$_LatenessRuleChanged> get copyWith =>
-      __$$_LatenessRuleChangedCopyWithImpl<_$_LatenessRuleChanged>(
+  _$$LatenessRuleChangedImplCopyWith<_$LatenessRuleChangedImpl> get copyWith =>
+      __$$LatenessRuleChangedImplCopyWithImpl<_$LatenessRuleChangedImpl>(
           this, _$identity);
 
   @override
@@ -882,29 +885,29 @@ class _$_LatenessRuleChanged implements _LatenessRuleChanged {
 
 abstract class _LatenessRuleChanged implements AddEventEvent {
   const factory _LatenessRuleChanged({required final String latenessRule}) =
-      _$_LatenessRuleChanged;
+      _$LatenessRuleChangedImpl;
 
   String get latenessRule;
   @JsonKey(ignore: true)
-  _$$_LatenessRuleChangedCopyWith<_$_LatenessRuleChanged> get copyWith =>
+  _$$LatenessRuleChangedImplCopyWith<_$LatenessRuleChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavePressedCopyWith<$Res> {
-  factory _$$_SavePressedCopyWith(
-          _$_SavePressed value, $Res Function(_$_SavePressed) then) =
-      __$$_SavePressedCopyWithImpl<$Res>;
+abstract class _$$SavePressedImplCopyWith<$Res> {
+  factory _$$SavePressedImplCopyWith(
+          _$SavePressedImpl value, $Res Function(_$SavePressedImpl) then) =
+      __$$SavePressedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({GlobalKey<FormState> formKey});
 }
 
 /// @nodoc
-class __$$_SavePressedCopyWithImpl<$Res>
-    extends _$AddEventEventCopyWithImpl<$Res, _$_SavePressed>
-    implements _$$_SavePressedCopyWith<$Res> {
-  __$$_SavePressedCopyWithImpl(
-      _$_SavePressed _value, $Res Function(_$_SavePressed) _then)
+class __$$SavePressedImplCopyWithImpl<$Res>
+    extends _$AddEventEventCopyWithImpl<$Res, _$SavePressedImpl>
+    implements _$$SavePressedImplCopyWith<$Res> {
+  __$$SavePressedImplCopyWithImpl(
+      _$SavePressedImpl _value, $Res Function(_$SavePressedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -912,7 +915,7 @@ class __$$_SavePressedCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
   }) {
-    return _then(_$_SavePressed(
+    return _then(_$SavePressedImpl(
       formKey: null == formKey
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
@@ -923,8 +926,8 @@ class __$$_SavePressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SavePressed implements _SavePressed {
-  const _$_SavePressed({required this.formKey});
+class _$SavePressedImpl implements _SavePressed {
+  const _$SavePressedImpl({required this.formKey});
 
   @override
   final GlobalKey<FormState> formKey;
@@ -938,7 +941,7 @@ class _$_SavePressed implements _SavePressed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SavePressed &&
+            other is _$SavePressedImpl &&
             (identical(other.formKey, formKey) || other.formKey == formKey));
   }
 
@@ -948,8 +951,8 @@ class _$_SavePressed implements _SavePressed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SavePressedCopyWith<_$_SavePressed> get copyWith =>
-      __$$_SavePressedCopyWithImpl<_$_SavePressed>(this, _$identity);
+  _$$SavePressedImplCopyWith<_$SavePressedImpl> get copyWith =>
+      __$$SavePressedImplCopyWithImpl<_$SavePressedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1040,11 +1043,11 @@ class _$_SavePressed implements _SavePressed {
 
 abstract class _SavePressed implements AddEventEvent {
   const factory _SavePressed({required final GlobalKey<FormState> formKey}) =
-      _$_SavePressed;
+      _$SavePressedImpl;
 
   GlobalKey<FormState> get formKey;
   @JsonKey(ignore: true)
-  _$$_SavePressedCopyWith<_$_SavePressed> get copyWith =>
+  _$$SavePressedImplCopyWith<_$SavePressedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1142,11 +1145,11 @@ class _$AddEventStateCopyWithImpl<$Res, $Val extends AddEventState>
 }
 
 /// @nodoc
-abstract class _$$_AddEventStateCopyWith<$Res>
+abstract class _$$AddEventStateImplCopyWith<$Res>
     implements $AddEventStateCopyWith<$Res> {
-  factory _$$_AddEventStateCopyWith(
-          _$_AddEventState value, $Res Function(_$_AddEventState) then) =
-      __$$_AddEventStateCopyWithImpl<$Res>;
+  factory _$$AddEventStateImplCopyWith(
+          _$AddEventStateImpl value, $Res Function(_$AddEventStateImpl) then) =
+      __$$AddEventStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1161,11 +1164,11 @@ abstract class _$$_AddEventStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AddEventStateCopyWithImpl<$Res>
-    extends _$AddEventStateCopyWithImpl<$Res, _$_AddEventState>
-    implements _$$_AddEventStateCopyWith<$Res> {
-  __$$_AddEventStateCopyWithImpl(
-      _$_AddEventState _value, $Res Function(_$_AddEventState) _then)
+class __$$AddEventStateImplCopyWithImpl<$Res>
+    extends _$AddEventStateCopyWithImpl<$Res, _$AddEventStateImpl>
+    implements _$$AddEventStateImplCopyWith<$Res> {
+  __$$AddEventStateImplCopyWithImpl(
+      _$AddEventStateImpl _value, $Res Function(_$AddEventStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1180,7 +1183,7 @@ class __$$_AddEventStateCopyWithImpl<$Res>
     Object? latenessRule = null,
     Object? failureOrSuccessOption = null,
   }) {
-    return _then(_$_AddEventState(
+    return _then(_$AddEventStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -1219,8 +1222,8 @@ class __$$_AddEventStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddEventState implements _AddEventState {
-  const _$_AddEventState(
+class _$AddEventStateImpl implements _AddEventState {
+  const _$AddEventStateImpl(
       {required this.isLoading,
       required this.validateFields,
       required this.eventName,
@@ -1256,7 +1259,7 @@ class _$_AddEventState implements _AddEventState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddEventState &&
+            other is _$AddEventStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.validateFields, validateFields) ||
@@ -1280,8 +1283,8 @@ class _$_AddEventState implements _AddEventState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddEventStateCopyWith<_$_AddEventState> get copyWith =>
-      __$$_AddEventStateCopyWithImpl<_$_AddEventState>(this, _$identity);
+  _$$AddEventStateImplCopyWith<_$AddEventStateImpl> get copyWith =>
+      __$$AddEventStateImplCopyWithImpl<_$AddEventStateImpl>(this, _$identity);
 }
 
 abstract class _AddEventState implements AddEventState {
@@ -1294,7 +1297,7 @@ abstract class _AddEventState implements AddEventState {
       required final TimeOfDay time,
       required final String latenessRule,
       required final Option<Either<EventsFailure, EventObject>>
-          failureOrSuccessOption}) = _$_AddEventState;
+          failureOrSuccessOption}) = _$AddEventStateImpl;
 
   @override
   bool get isLoading;
@@ -1314,6 +1317,6 @@ abstract class _AddEventState implements AddEventState {
   Option<Either<EventsFailure, EventObject>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_AddEventStateCopyWith<_$_AddEventState> get copyWith =>
+  _$$AddEventStateImplCopyWith<_$AddEventStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

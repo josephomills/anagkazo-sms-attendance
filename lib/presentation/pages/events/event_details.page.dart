@@ -402,7 +402,7 @@ class EventDetailsPage extends StatelessWidget implements AutoRouteWrapper {
     double? logoFactor = 1,
   }) async {
     final Completer<ui.Image> completer = Completer<ui.Image>();
-    final byteData = await rootBundle.load("assets/icon/logo.png");
+    final byteData = await rootBundle.load("assets/icon/logo_for_qr_code.png");
     ui.decodeImageFromList(byteData.buffer.asUint8List(), completer.complete);
     final image = await completer.future;
 

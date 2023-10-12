@@ -14,7 +14,10 @@ class AppRouter extends $AppRouter {
       meta: const {"title": ""},
       children: [
         AutoRoute(
-            page: HomeRoute.page, meta: const {"title": "Home"}, path: "home"),
+          page: HomeRoute.page,
+          meta: const {"title": "Home"},
+          path: "home",
+        ),
         AutoRoute(
           page: EventsRoute.page,
           meta: const {"title": "Events"},
